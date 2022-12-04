@@ -264,6 +264,17 @@ function paintSearchList(){
 
 
 
+//function for change page index.html to pagos.html
+function ShopCumputers(){
+    if(ListComputersBuy.length >0){
+    window.location.href = "pagos.html";
+    }
+}
+    
+
+
+
+
 
 window.onload = function() {
     
