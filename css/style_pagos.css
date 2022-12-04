@@ -32,6 +32,15 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
+.mas-menos{
+    border: none;
+}
+.mas-menos:hover{
+    color: red;
+}
+
+
+
 .inputCantidad{
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -39,8 +48,18 @@ input[type="number"]::-webkit-outer-spin-button {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     width: 100%;
+    border:1px solid rgb(212, 212, 212);
+    padding: 3px 0px 3px 0px;
+}
+.inputCantidad:focus{
+    outline: 1px solid rgb(212, 212, 212);
+}
 
-    padding: 6px 0px 6px 0px;
+#DeletepC{
+    border: none;
+}
+#DeletepC:hover{
+    color:red;
 }
 
 
@@ -52,20 +71,49 @@ input[type="number"]::-webkit-outer-spin-button {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     border: 1px solid rgb(189, 189, 189);
-    padding: 5px;
+    padding: 8px 5px;
 }
+
+.inputCupon::placeholder{
+    color: rgb(189, 189, 189);
+}
+
+.inputCupon:focus{
+    outline: 1px solid rgba(187, 40, 40, 0.699);
+    border: none;
+    
+}
+
 
 
 .btnAplicar{
-    background: rgba(200, 32, 29, 0.89);
-    background: linear-gradient(0deg, rgba(204, 41, 39, 0.89) 0%, rgba(125, 13, 13, 0.815) 100%);
-    color: white;
+    color: rgb(219, 0, 0);
     text-decoration: none;
     padding: 8px;
     border-radius: 6px;
-    border: none;
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-
+    /* agregar un borde de color rojo */
+    border: 1px solid rgba(158, 0, 0, 0.726) !important;
 }
+
+.btnAplicar:hover{
+    box-shadow: 0px 0px 10px inset rgba(105, 22, 22, 0.534);
+    color: rgb(219, 0, 0) !important;
+}
+
+
+.redSocial{
+    text-decoration: none;
+    color: rgb(163, 163, 163);
+}
+.redSocial:hover{
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
