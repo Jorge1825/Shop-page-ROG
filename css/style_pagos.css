@@ -1,0 +1,71 @@
+*
+{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+#toBack{
+    
+    color: rgb(196, 30, 30);
+    
+}
+
+
+.tablepagos{
+    table-layout: fixed;
+    width: 100%;
+    word-wrap: break-word;
+    align-items: center;
+    vertical-align: middle;
+
+}
+
+
+/* eliminar las felchas de los input number */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+.inputCantidad{
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    width: 100%;
+
+    padding: 6px 0px 6px 0px;
+}
+
+
+
+.inputCupon{
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border: 1px solid rgb(189, 189, 189);
+    padding: 5px;
+}
+
+
+.btnAplicar{
+    background: rgba(200, 32, 29, 0.89);
+    background: linear-gradient(0deg, rgba(204, 41, 39, 0.89) 0%, rgba(125, 13, 13, 0.815) 100%);
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+
+}
