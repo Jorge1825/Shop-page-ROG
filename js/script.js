@@ -328,6 +328,8 @@ function ShopCumputers(){
 
 
 //Listener event onload of the page
+
+
 window.onload = function() {
     
     //execute the function for change the background of the banner 
@@ -356,3 +358,10 @@ window.onload = function() {
 } 
 
 
+
+
+//loader of the page
+window.addEventListener("load", function(){
+
+    this.document.getElementById("loader").classList.toggle("loader2")
+})
