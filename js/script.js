@@ -361,7 +361,8 @@ window.onload = function() {
 
 
 //loader of the page
+//quitar el loader cunado la pagina haya cargado al 100%
 window.addEventListener("load", function(){
-
+    
     this.document.getElementById("loader").classList.toggle("loader2")
 })
