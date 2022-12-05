@@ -34,9 +34,11 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .mas-menos{
     border: none;
+    background: transparent;
 }
 .mas-menos:hover{
     color: red;
+    background: transparent;
 }
 
 
@@ -57,9 +59,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 #deletepC{
     border: none;
+    background-color: transparent;
+    color:rgb(255, 0, 0);
 }
 #deletepC:hover{
-    color:red;
+    color:rgb(150, 1, 1);
+
 }
 
 

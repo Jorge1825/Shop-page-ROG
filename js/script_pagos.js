@@ -1,18 +1,46 @@
-const cuantityPc = document.getElementById("cantidadPc")
+
 let ListComputersBuy = JSON.parse(localStorage.getItem("ListComputersBuy"))
 const pcBuy = document.getElementById("pcBuy")
 
-function addCuantityPc(){
-    cuantityPc.value++;
-}
 
-function removeCuantityPc(){
-    if(cuantityPc.value > 1){
-    cuantityPc.value--;
+function changeQuantity(action,index){
+    const cuantityPc = document.getElementById("cantidadPc")
+    
+    if(action === "validar"){
+        console.log(cuantityPc.value)
+        console.log(ListComputersBuy[index].stock)
+
+        if(((parseInt(ListComputersBuy[index].stock)+parseInt(ListComputersBuy[index].quantity))-parseInt(cuantityPc.value))< 0){
+            alert("No hay stock suficiente")
+            cuantityPc.value = parseInt(ListComputersBuy[index].quantity) + parseInt(ListComputersBuy[index].stock)
+        }else if(cuantityPc.value === "0"){
+            deletePc(index);
+        }
+    }
+    else if(action ==="+"){
+        if(((parseInt(ListComputersBuy[index].stock)+parseInt(ListComputersBuy[index].quantity))-parseInt(cuantityPc.value))<= 0){
+            alert("No hay stock suficiente")
+            cuantityPc.value = parseInt(ListComputersBuy[index].quantity) + parseInt(ListComputersBuy[index].stock)
+        }else{
+            cuantityPc.value ++;
+        }
+    
+    }
+    else{
+        cuantityPc.value --;
+        if(cuantityPc.value === "0"){
+            deletePc(index);
+        }
+            
+        
+
     }
 
 }
 
+
+
+//function for delete pc in the list
 function deletePc(index){
     ListComputersBuy.splice(index,1)
     paintPc();
@@ -32,12 +60,12 @@ function paintPc(){
                 <div class="col-md-3 col-6 y align-self-center">
                     <div class="row  justify-content-center">
 
-                        <div class="col-2 justify-content-center align-items-center d-flex"><button onclick="removeCuantityPc()" class="mas-menos"><i class="fa-solid fa-minus"></i></button></div>
-                        <div class="col-md-4 col-3 justify-content-center d-flex">
+                        <div class="col-2 justify-content-center align-items-center d-flex"><button onclick="changeQuantity('-',${index})" class="mas-menos"><i class="fa-solid fa-minus"></i></button></div>
+                        <div class="col-md-4 col-4 justify-content-center d-flex">
                             
                             
-                            <input id="cantidadPc"  type="number" class="inputCantidad w-100 text-center" value="${pc.quantity}"></div>
-                        <div class="col-2 justify-content-center align-items-center d-flex"><button class="mas-menos" onclick="addCuantityPc()"><i class="fa-solid fa-plus"></i></button></div>
+                            <input onchange="changeQuantity('validar',${index})" id="cantidadPc"  type="number" class="inputCantidad w-100 text-center" value="${pc.quantity}"></div>
+                        <div class="col-2 justify-content-center align-items-center d-flex"><button class="mas-menos" onclick="changeQuantity('+',${index})"><i class="fa-solid fa-plus"></i></button></div>
                 
                     </div>
                 </div>
