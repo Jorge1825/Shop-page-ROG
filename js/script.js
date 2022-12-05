@@ -347,7 +347,9 @@ window.onload = function() {
         ListComputersBuy = JSON.parse(localStorage.getItem("ListComputersBuy"));
         valueShop.setAttribute("data-count",ListComputersBuy.length)
         localStorage.removeItem("ListComputersBuy")
+        tableStyle.classList.remove("opacity-0")
         paintBuy();
+
     }
     
 
