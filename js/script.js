@@ -181,7 +181,7 @@ function buyPc(idPc,index){
         setTimeout(() => {
         notify.classList.remove("show")
             }
-            , 3000);
+            , 4000);
 
    //validate if the pc is already in the list
     if(ListComputersBuy.find(pcBuy => pcBuy.id === idPc)){
@@ -203,7 +203,7 @@ function buyPc(idPc,index){
                     setTimeout(() => {
                     notify.classList.remove("show","bg-dark","text-light")
                         }
-                        , 3000);
+                        , 4000);
 
 
                     //change the button of buy
