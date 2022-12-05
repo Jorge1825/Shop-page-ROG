@@ -55,10 +55,10 @@ input[type="number"]::-webkit-outer-spin-button {
     outline: 1px solid rgb(212, 212, 212);
 }
 
-#DeletepC{
+#deletepC{
     border: none;
 }
-#DeletepC:hover{
+#deletepC:hover{
     color:red;
 }
 

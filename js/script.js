@@ -1,6 +1,9 @@
 //variable global 
 const valueShop= document.getElementById("compra")
 const tableStyle = document.getElementById("tableStyle")
+const notify = document.getElementById("notify")
+const titleNotify = document.getElementById("titleNotify")
+const bodyNotify = document.getElementById("bodyNotify")
 
 let computers =[
     {id:1,name: "ROG Zephyrus Duo 16 (2022) GX650RX-LB011X", 
@@ -12,7 +15,8 @@ let computers =[
     c5:"16 pulgadas, UHD+ 16:10 (3840 x 2400, WQUXGA) / FHD+ 16:10 (1920 x 1200, WUXGA),",
     c6:'Additional Display: 14" 3840 x 1100(4K) IPS-level Panel',
     c7:"2TB + 2TB PCIe® 4.0 NVMe™ M.2 Performance SSD (RAID 0)",
-    cost: 5000000
+    cost: 5000000,
+    stock:2
 },
     {id:2,name: "ROG Strix G15 (2022) G513RM-HQ310W",
     image:"./img/pc2.png",
@@ -22,7 +26,8 @@ let computers =[
     c4:"15.6 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:165Hz",
     c5:"1TB PCIe® 4.0 NVMe™ M.2 SSD",
     c6:"16GB DDR4 3200MHz",
-    cost: 3500000
+    cost: 3500000,
+    stock:10
 
 },
     {id:3,name: "ROG Strix Scar 17 SE (2022) G733CX-LL019W",
@@ -32,7 +37,8 @@ let computers =[
     c3:"AMD Ryzen™ 9 5900HX",
     c4:"17.3 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:240Hz",
     c5:"1TB + 1TB PCIe® 4.0 NVMe™ M.2 Performace SSD (RAID 0)",
-    cost: 4500000
+    cost: 4500000,
+    stock:10
 },
 {id:4,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
     image:"./img/pc4.png",
@@ -40,7 +46,8 @@ let computers =[
     c2:"12th Gen Intel® Core™ i5-12500H",
     c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
     c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
-    cost: 4500000
+    cost: 4500000,
+    stock:10
 },
 {id:5,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
     image:"./img/pc5.png",
@@ -48,7 +55,8 @@ let computers =[
     c2:"12th Gen Intel® Core™ i5-12500H",
     c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
     c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
-    cost: 4500000
+    cost: 4500000,
+    stock:0
 },
 {id:6,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
     image:"./img/pc6.png",
@@ -56,7 +64,8 @@ let computers =[
     c2:"12th Gen Intel® Core™ i5-12500H",
     c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
     c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
-    cost: 4500000
+    cost: 4500000,
+    stock:10
 }
 ]
 
@@ -83,6 +92,8 @@ function clearCar(){
 //function for delete a product of the list of shopping
 function deleteItem(index){
     ListComputersBuy[index].quantity -= 1;
+    ListComputersBuy[index].stock += 1;
+    paintCardPc();
     if(ListComputersBuy[index].quantity == 0){
         ListComputersBuy.splice(index,1);
         valueShop.setAttribute("data-count",ListComputersBuy.length)
@@ -104,11 +115,13 @@ function paintBuy(){
     let msg = document.querySelectorAll("#msg");
 
 
+    //if the list of products is empty, the table is hidden and a message is displayed
     msg.forEach(e => {
         e.style.display = "none";
     });
 
 
+    //paint the values of the computers that the user to buy
     table.forEach(tabla => {
     tabla.innerHTML="";
     ListComputersBuy.forEach((pc,index) => {
@@ -161,12 +174,42 @@ function cambiarBackground(){
 //function for validate the exist of a product in the list of shopping and add the quantity of product
 function buyPc(idPc,index){
 
+        //configure values of the notification
+        notify.classList.add("show");
+        titleNotify.innerText = "PRODUCTO AGREGADO"
+        bodyNotify.innerText = "¡ Producto agregado a tu carrito !"
+        setTimeout(() => {
+        notify.classList.remove("show")
+            }
+            , 3000);
+
    //validate if the pc is already in the list
     if(ListComputersBuy.find(pcBuy => pcBuy.id === idPc)){
+
         //change the quantity of the pc
         ListComputersBuy.map(pcBuy => {
             if(pcBuy.id === idPc){
+                if(pcBuy.stock > 0){
                 pcBuy.quantity++;
+                //change the stock of pc
+                pcBuy.stock--;
+                if(pcBuy.stock == 0){
+                    
+                    //show notification
+                    //configure values of the notification
+                    notify.classList.add("show","bg-dark","text-light");
+                    titleNotify.innerText = "SIN STOCK";
+                    bodyNotify.innerText = "¡ Has alcanzado el limite de equipos disponibles !";
+                    setTimeout(() => {
+                    notify.classList.remove("show","bg-dark","text-light")
+                        }
+                        , 3000);
+
+
+                    //change the button of buy
+                    paintCardPc();
+                }
+                }
             }
         })
  
@@ -174,7 +217,10 @@ function buyPc(idPc,index){
     }else{
         ListComputersBuy.push(computers[index]);
         //add key quantity in the object
-        ListComputersBuy[ListComputersBuy.length-1].quantity = 1;   
+        ListComputersBuy[ListComputersBuy.length-1].quantity = 1; 
+        
+        //change the stock of pc
+        ListComputersBuy[ListComputersBuy.length-1].stock--;
 
         //change of value the button of the car of shop
         valueShop.setAttribute("data-count",ListComputersBuy.length)
@@ -186,6 +232,10 @@ function buyPc(idPc,index){
         tableStyle.classList.remove("opacity-0")
     
     }
+
+
+
+
     paintBuy();
      
     
@@ -212,19 +262,19 @@ function paintCardPc(){
                                         <ul class="card-text overflow-auto text-start mt-4 mb-5" style="height: 15rem;">
                                             ${
                                                 Object.keys(pc).map(key => {
-                                                    if(key != "id" && key != "name" && key != "image" && key != "cost"){
+                                                    if(key != "id" && key != "name" && key != "image" && key != "cost" && key != "stock"){
                                                         return `<li>${pc[key]}</li>`
                                                     }
                                                 }).join("")
                                             }
                                         </ul>
 
-
+                                        <div class="${pc.stock >0 ? "d-block" : "d-none"}">
                                         <h3 class=" fw-semibold" >${formatCost(pc.cost)}</h3>
                                         <span class="text-danger fw-semibold">Ahorro ${formatCost(pc.cost*0.20)}<span class="ms-2 text-dark"><del>${formatCost(pc.cost+(pc.cost*0.20))}</del></span></span>
                                         <br>
-                                        <button href="#" class="text-center btn-buy my-2" onclick="buyPc(${pc.id},${index})">COMPRAR</button>
-                                        
+                                        <button id="buyPcBtn" href="#"  class="text-center btn-buy my-2" onclick="buyPc(${pc.id},${index})">COMPRAR</button>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +317,9 @@ function paintSearchList(){
 //function for change page index.html to pagos.html
 function ShopCumputers(){
     if(ListComputersBuy.length >0){
-    window.location.href = "pagos.html";
+
+        localStorage.setItem("ListComputersBuy",JSON.stringify(ListComputersBuy));
+        window.location.href = "pagos.html";
     }
 }
     
@@ -275,15 +327,30 @@ function ShopCumputers(){
 
 
 
-
+//Listener event onload of the page
 window.onload = function() {
     
     //execute the function for change the background of the banner 
     setInterval(cambiarBackground, 
         
         5000);
-    paintCardPc();   
+
+    //paint the targets of computers 
+    paintCardPc();
+    
+    //paint the options of the list search
     paintSearchList();
+
+
+    //validate if exist one date en the localStorage and if exist paint the values
+    if(localStorage.getItem("ListComputersBuy")){
+        ListComputersBuy = JSON.parse(localStorage.getItem("ListComputersBuy"));
+        valueShop.setAttribute("data-count",ListComputersBuy.length)
+        localStorage.removeItem("ListComputersBuy")
+        paintBuy();
+    }
+    
+
 } 
 
 
