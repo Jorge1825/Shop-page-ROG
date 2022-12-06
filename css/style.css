@@ -437,12 +437,12 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
   .lds-dual-ring:after {
     content: " ";
     display: block;
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
     margin: 8px;
     border-radius: 50%;
     border: 6px solid rgb(199, 13, 13);
-    border-color: rgb(255, 255, 255) transparent rgb(255, 255, 255) transparent;
+    border-color: rgb(178, 0, 0) transparent rgb(178, 0, 0) transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
   @keyframes lds-dual-ring {
@@ -455,7 +455,7 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
   }
 
   .loader{
-    background-image: url("../img/super.jpg");
+    background:white ;
     background-position: center center;
     background-size: cover;
     width: 100%;

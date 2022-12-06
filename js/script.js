@@ -66,6 +66,189 @@ let computers =[
     c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
     cost: 4500000,
     stock:10
+},
+{id:1,name: "ROG Zephyrus Duo 16 (2022) GX650RX-LB011X", 
+    image:"./img/pc1.png",
+    c1:"NVIDIA® GeForce RTX™ 3080 Ti Laptop GPU",
+    c2:"Windows 11 Pro",
+    c3:"AMD Ryzen™ 9 6900HX",
+    c4:"ROG Nebula Display",
+    c5:"16 pulgadas, UHD+ 16:10 (3840 x 2400, WQUXGA) / FHD+ 16:10 (1920 x 1200, WUXGA),",
+    c6:'Additional Display: 14" 3840 x 1100(4K) IPS-level Panel',
+    c7:"2TB + 2TB PCIe® 4.0 NVMe™ M.2 Performance SSD (RAID 0)",
+    cost: 5000000,
+    stock:2
+},
+    {id:2,name: "ROG Strix G15 (2022) G513RM-HQ310W",
+    image:"./img/pc2.png",
+    c1:"GeForce RTX™ 3060 Laptop GPU",
+    c2:"Windows 11 Home",
+    c3:"AMD Ryzen™ 7 6800H",
+    c4:"15.6 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:165Hz",
+    c5:"1TB PCIe® 4.0 NVMe™ M.2 SSD",
+    c6:"16GB DDR4 3200MHz",
+    cost: 3500000,
+    stock:10
+
+},
+    {id:3,name: "ROG Strix Scar 17 SE (2022) G733CX-LL019W",
+    image:"./img/pc3.png",
+    c1:"NVIDIA® GeForce RTX™ 3080 Ti Laptop GPU",
+    c2:"Windows 11 Home",
+    c3:"AMD Ryzen™ 9 5900HX",
+    c4:"17.3 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:240Hz",
+    c5:"1TB + 1TB PCIe® 4.0 NVMe™ M.2 Performace SSD (RAID 0)",
+    cost: 4500000,
+    stock:10
+},
+{id:4,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc4.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:10
+},
+{id:5,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc5.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:0
+},
+{id:6,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc6.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:10
+},
+{id:1,name: "ROG Zephyrus Duo 16 (2022) GX650RX-LB011X", 
+    image:"./img/pc1.png",
+    c1:"NVIDIA® GeForce RTX™ 3080 Ti Laptop GPU",
+    c2:"Windows 11 Pro",
+    c3:"AMD Ryzen™ 9 6900HX",
+    c4:"ROG Nebula Display",
+    c5:"16 pulgadas, UHD+ 16:10 (3840 x 2400, WQUXGA) / FHD+ 16:10 (1920 x 1200, WUXGA),",
+    c6:'Additional Display: 14" 3840 x 1100(4K) IPS-level Panel',
+    c7:"2TB + 2TB PCIe® 4.0 NVMe™ M.2 Performance SSD (RAID 0)",
+    cost: 5000000,
+    stock:2
+},
+    {id:2,name: "ROG Strix G15 (2022) G513RM-HQ310W",
+    image:"./img/pc2.png",
+    c1:"GeForce RTX™ 3060 Laptop GPU",
+    c2:"Windows 11 Home",
+    c3:"AMD Ryzen™ 7 6800H",
+    c4:"15.6 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:165Hz",
+    c5:"1TB PCIe® 4.0 NVMe™ M.2 SSD",
+    c6:"16GB DDR4 3200MHz",
+    cost: 3500000,
+    stock:10
+
+},
+    {id:3,name: "ROG Strix Scar 17 SE (2022) G733CX-LL019W",
+    image:"./img/pc3.png",
+    c1:"NVIDIA® GeForce RTX™ 3080 Ti Laptop GPU",
+    c2:"Windows 11 Home",
+    c3:"AMD Ryzen™ 9 5900HX",
+    c4:"17.3 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:240Hz",
+    c5:"1TB + 1TB PCIe® 4.0 NVMe™ M.2 Performace SSD (RAID 0)",
+    cost: 4500000,
+    stock:10
+},
+{id:4,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc4.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:10
+},
+{id:5,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc5.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:0
+},
+{id:6,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc6.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:10
+},
+{id:1,name: "ROG Zephyrus Duo 16 (2022) GX650RX-LB011X", 
+    image:"./img/pc1.png",
+    c1:"NVIDIA® GeForce RTX™ 3080 Ti Laptop GPU",
+    c2:"Windows 11 Pro",
+    c3:"AMD Ryzen™ 9 6900HX",
+    c4:"ROG Nebula Display",
+    c5:"16 pulgadas, UHD+ 16:10 (3840 x 2400, WQUXGA) / FHD+ 16:10 (1920 x 1200, WUXGA),",
+    c6:'Additional Display: 14" 3840 x 1100(4K) IPS-level Panel',
+    c7:"2TB + 2TB PCIe® 4.0 NVMe™ M.2 Performance SSD (RAID 0)",
+    cost: 5000000,
+    stock:2
+},
+    {id:2,name: "ROG Strix G15 (2022) G513RM-HQ310W",
+    image:"./img/pc2.png",
+    c1:"GeForce RTX™ 3060 Laptop GPU",
+    c2:"Windows 11 Home",
+    c3:"AMD Ryzen™ 7 6800H",
+    c4:"15.6 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:165Hz",
+    c5:"1TB PCIe® 4.0 NVMe™ M.2 SSD",
+    c6:"16GB DDR4 3200MHz",
+    cost: 3500000,
+    stock:10
+
+},
+    {id:3,name: "ROG Strix Scar 17 SE (2022) G733CX-LL019W",
+    image:"./img/pc3.png",
+    c1:"NVIDIA® GeForce RTX™ 3080 Ti Laptop GPU",
+    c2:"Windows 11 Home",
+    c3:"AMD Ryzen™ 9 5900HX",
+    c4:"17.3 pulgadas, WQHD (2560 x 1440) 16:9, Refresh Rate:240Hz",
+    c5:"1TB + 1TB PCIe® 4.0 NVMe™ M.2 Performace SSD (RAID 0)",
+    cost: 4500000,
+    stock:10
+},
+{id:4,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc4.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:10
+},
+{id:5,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc5.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:0
+},
+{id:6,name: "ROG Flow Z13 (2022) GZ301ZA-PS53",
+    image:"./img/pc6.png",
+    c1:"Windows 11 Home",
+    c2:"12th Gen Intel® Core™ i5-12500H",
+    c3:"13.4 inch, FHD+ 16:10 (1920 x 1200, WUXGA), Refresh Rate:120Hz",
+    c4:"512GB PCIe® 4.0 NVMe™ M.2 SSD (2230)",
+    cost: 4500000,
+    stock:10
 }
 ]
 
@@ -126,14 +309,14 @@ function paintBuy(){
     tabla.innerHTML="";
     ListComputersBuy.forEach((pc,index) => {
         tabla.innerHTML += `<tr class="my-3">
-        <td id="nombreTabla"><img src="${pc.image}" alt="pc" class="img-fluid"></td>
+        <td id="nombreTabla"><img src="${pc.image}" loading="lazy" alt="pc" class="img-fluid"></td>
         <td id="nombreTabla">${pc.name}</td>
         <td id="nombreTabla">${formatCost(pc.cost)}</td>
         <td id="cantidadTabla">${pc.quantity}</td>
         <td class="btnTable"><div><button class="delete-btn" onclick="deleteItem(${index})"><i class="fa-sharp fa-solid fa-circle-xmark fs-4"></i></button></div></td>
     </tr> `
 
-
+ 
     
 
 
@@ -252,9 +435,9 @@ function paintCardPc(){
     target.innerHTML = "";
     computers.forEach((pc,index) => {
         target.innerHTML += `
-        <div class="animarTarget col-xxl-3 col-md-4 col-sm-6 my-3">
+        <div class="animarTarget col-xxl-3 col-xl-4 col-sm-6 my-3">
                             <div class="card h-100 mt-4">
-                                <img id="imagePc" src="${pc.image}" class="card-img-top" alt="...">
+                                <img id="imagePc" loading="lazy" src="${pc.image}" class="card-img-top" alt="...">
                                 <div class="card-body text-center">
                                     <h5 id="namePc" class="card-title">${pc.name}</h5>
               
@@ -318,6 +501,10 @@ function paintSearchList(){
 function ShopCumputers(){
     if(ListComputersBuy.length >0){
 
+        //clear all localStorage
+        localStorage.clear();
+
+        //add the list of computers in the localStorage
         localStorage.setItem("ListComputersBuy",JSON.stringify(ListComputersBuy));
         window.location.href = "pagos.html";
     }
@@ -344,15 +531,6 @@ window.onload = function() {
     paintSearchList();
 
 
-    //validate if exist one date en the localStorage and if exist paint the values
-    if(localStorage.getItem("ListComputersBuy")){
-        ListComputersBuy = JSON.parse(localStorage.getItem("ListComputersBuy"));
-        valueShop.setAttribute("data-count",ListComputersBuy.length)
-        localStorage.removeItem("ListComputersBuy")
-        tableStyle.classList.remove("opacity-0")
-        paintBuy();
-
-    }
     
 
 } 

@@ -58,10 +58,11 @@
             </div>
             <div class="row ">
                 <div class="col-md-6 col-12 px-2">
-                    <input class="w-100 h-100 inputCupon" type="text" placeholder="Ingrese su cupón">
+
+                    <input class="w-100 h-100 inputCupon" id="inputCupon" type="text" placeholder="Ingrese su cupón">
                 </div>
                 <div class="col-md-3 col-12 justify-content-start px-0 d-flex mt-3 mt-md-0">
-                    <button class="btn w-100 mx-2 mx-md-0 btnAplicar">Aplicar</button>
+                    <button class="btn w-100 mx-2 mx-md-0 btnAplicar" onclick="applyCupon()" id="aplicarCupon">Aplicar</button>
                 </div>
             </div>
         </div>
@@ -71,15 +72,20 @@
                 <div class="col-12 ">
                     <div class="row ">
                         <div class="col-5 fw-bold fs-5">Total Parcial</div>
-                        <div class="col-7 text-end fs-5 align-self-center">$ 12000000</div>
+                        <div class="col-7 text-end fs-5 align-self-center">$ 12000000,00</div>
                     </div>
-                    <div class="row mt-2">
+                    <div class="row mt-3">
                         <div class="col-5 fs-6">Impuestos</div>
-                        <div class="col-7 text-end align-self-center">$ 0</div>
+                        <div class="col-7 text-end align-self-center">$ 0,00</div>
                     </div>
                     <div class="row mt-2 border-top pt-4">
                         <div class="col-5 fs-4 fw-bold">Total del Pedido</div>
-                        <div class="col-7 fs-4 text-end align-self-center text-break">$ 000000000000000</div>
+                        <div class="col-7 fs-4 text-end align-self-center text-break">$ 0,00</div>
+                    </div>
+                    <div class="row mt-2 pt-5">
+                        <div class="col-12">
+                            <button class="btn w-100 btnComprar">Comprar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,9 +102,9 @@
 
 
 
+</div>
 
-
-    <footer class="bg-dark fs5 p-2 mt-5 text-center" style="color:grey;">
+    <footer class="bg-dark fs-5 p-2 mt-5 text-center" style="color:grey;">
         <div class="row mx-0 justify-content-center mt-2">
             <div class="col-5 col-md-3 fs-3">
                 <div class="row mx-0 ">
@@ -139,7 +145,24 @@
         </div>
     </footer>
 
-</div>
+
+
+    <!-- msg emergente para mensajes de error o de resultados -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div id="notify" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-animation="true">
+          <div class="toast-header">
+            <img src="./img/logoNotify.png" class="rounded me-2 img-fluid" alt="..." width="30px" height="30px" >
+            <strong id="titleNotify" class="me-auto">title</strong>
+            <small>Hace 1 segundo</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div id="bodyNotify" class="toast-body">
+           bodytext
+          </div>
+        </div>
+      </div>
+
+
 <script src="./js/script_pagos.js"></script>
 
 </body>
