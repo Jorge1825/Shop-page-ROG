@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Republic of gamers</title>
+    <!-- Insertar icono -->
+    <link rel="shortcut icon" href="./img/logo.ico">
+
+</head>
+
+<body>
+
+    <div class="container-fluid justify-content-center p-0 m-0 ">
+
+        <!-- naybar -->
+        <div class="row align-items-center justify-content-center text-center my-2 mx-0">
+            <div class="col-sm-1 "></div>
+            <div class="col-3 "><img src="./img/logo.png" alt="Logo D1" style="height: 60px;"></div>
+            <div class="col-5 col-sm-4 fw-bold fs-3">REPUBLIC OF GAMERS</div>
+            <div class="col-3 justify-content-center ">
+                <!-- crear un carrito de compras que sobre él haya un circulo con el numero de items -->
+             
+                    <i data-count="0" id="compra" class="fa fa-cart-plus fs-3 me-3 ">
+                    <div class="tabla d-none d-sm-block">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <table id="tableStyle" class="table text-center align-middle d-block opacity-0">
+                                        <thead class="d-block">
+                                            <tr>
+                                                <th id="nombreTabla" scope="col">Imagen</th>
+                                                <th id="nombreTabla" scope="col">Nombre</th>
+                                                <th id="nombreTabla" scope="col">Precio</th>
+                                                <th id="cantidadTabla" scope="col">Cantidad</th>
+                                                <th scope="col" class="btnTable"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table" class="d-block align-middle">
+                                            <p id="msg" class="txt-none fs-6">Aún no has agregado nada a tu carrito</p>
+
+
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <div class="modal-footer justify-content-end">
+
+                                    <div class="col-11">
+                                        <p id="Total" class="fw-light fs-5 text-start text-dark ps-2 mb-2 ">Total: $ 0,00
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-5"><button
+                                            class="btn-clear-car w-100 d-block text-center fs-6 fw-lighter mb-1 "
+                                            onclick="clearCar()">Vaciar carrito</button></div>
+                                    <div class="col-5">
+                                        <button id="btnComprar" class="btn-buy-car w-100 d-block text-center fs-6 fw-lighter"
+                                            onclick="ShopCumputers()">Comprar</button></div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- Tabla para movil -->
+                    <div class="tabla-movil d-block d-sm-none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <table id="tableStyle" class="placeholder-wave table text-center align-middle d-block overflow-auto">
+                                        <thead class="d-block">
+                                            <tr>
+                                                <th id="nombreTabla" scope="col">Imagen</th>
+                                                <th id="nombreTabla" scope="col">Nombre</th>
+                                                <th id="nombreTabla" scope="col">Precio</th>
+                                                <th id="cantidadTabla" scope="col">Cantidad</th>
+                                                <th scope="col" class="btnTable"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table" class="d-block align-middle">
+                                            <p id="msg" class="txt-none fs-6">Aún no has agregado nada a tu carrito</p>
+
+
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <div class="modal-footer justify-content-end">
+
+                                    <div class="col-11">
+                                        <p id="Total" class="fw-light fs-5 text-start text-dark ps-2 mb-2 ">Total: $ 0
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-5"><button
+                                            class="btn-clear-car w-100 d-block text-center fs-6 fw-lighter mb-1 "
+                                            onclick="clearCar()">Vaciar carrito</button></div>
+                                    <div class="col-5">
+                                        <button id="btnComprar" class="btn-buy-car w-100 d-block text-center fs-6 fw-lighter"
+                                            onclick="ShopCumputers()">Comprar</button></div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                </i>
+
+            </div>
+            <div class="col-sm-1"><span></span></div>
+        </div>
+
+
+
+
+
+    <!-- Banner animado -->
+    <div class="row bg-light mx-0">
+        <div id="CambioImagen" class="col-12 p-0 img_super0">
+            <div class="row justify-content-center mt-5 mx-0">
+                <div class="col-12 my-4 ">
+
+                    <div class="row mt-5 mx-0 ">
+                        <div class="col-2"></div>
+                        <div class="col-md-5 col-12 text-md-start text-center fs-3 text-light">Te ofrecemos lo mejor en
+                            tecnologia</div>
+
+
+                    </div>
+                    <div class="row my-4 mx-0 ">
+                        <div class="col-2"></div>
+                        <div class="col-12 col-md-5 text-center text-md-start fs-6 ms-1  text-light">Solo hoy un 20% de
+                            descuento</div>
+
+
+                    </div>
+                    <div class="row justify-content-center justify-content-md-start mx-0">
+                        <div class="col-md-2 col-0">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-10">
+                            <div class="input-group elementSearch">
+
+                                <input class="form-control border rounded-start" type="search" list="searchPc"
+                                    id="search" name="searching">
+                                <datalist id="searchPc">
+
+                                </datalist>
+
+                                <button class="btn bg-white rounded-end" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row my-5 mx-0"></div>
+            <div class="row justify-content-center banner-text mx-0">
+                <div class="col-8 my-3 bg-transparent">
+                    <div class="row">
+                        <div class="col-md-4 col-12">
+                            <div class="row text-center justify-content-center">
+                                <div class="col-12 "><i class="fa-regular fa-lightbulb fs-1"></i></div>
+                                <div class="col-12 mt-2"><span>Más de 1000 equipos disponibles</span><br><span>Descubre
+                                        el
+                                        tuyo</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <div class="row mt-4 mt-md-0 text-center justify-content-center ">
+                                <div class="col-12 mx-0  "><i class="fa-solid fa-question fs-1"></i></div>
+                                <div class="col-12  mt-2 "><span>¿No sabes que elegir?</span><br><span>Nosotros te
+                                        ayudamos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <div class="row mt-4 mt-md-0 text-center justify-content-center">
+                                <div class="col-12"><i class="fa-solid fa-clock fs-1"></i></div>
+                                <div class="col-12 mt-2"><span>¿Sin tiempo en tu agenda?</span><br><span>Disponibles las
+                                        24
+                                        horas</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Productos -->
+    <div class="row text-center mt-5 mx-0">
+        <div class=" col-12 fs-2 fw-semibold">Lista de equipos</div>
+    </div>
+
+    <div class="row justify-content-center my-4 mx-0">
+        <div class="col-10 justify-content-center d-flex">
+            <div id="target" class="row justify-content-center">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- msg emergente para mensajes de error o de resultados -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div id="notify" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-animation="true">
+          <div class="toast-header">
+            <img src="./img/logoNotify.png" class="rounded me-2 img-fluid" alt="..." width="30px" height="30px" >
+            <strong id="titleNotify" class="me-auto">title</strong>
+            <small>Hace 1 segundo</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div id="bodyNotify" class="toast-body">
+           bodytext
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    <!-- Footer -->
+  
+        <footer class="bg-dark fs5 p-2 mt-5 text-center" style="color:grey;">
+            <div class="row mx-0 justify-content-center mt-2">
+                <div class="col-5 col-md-3 fs-3">
+                    <div class="row mx-0 ">
+                    <!-- Redes sociales facebook,instagram,twiter,correo -->
+                    <div class="col-3 justify-content-center d-flex">
+                        <a href="#"class="redSocial">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                    <div class="col-3 justify-content-center d-flex">
+                        <a href="#" class="redSocial">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-3 justify-content-center d-flex">
+                        <a href="#" class="redSocial">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="col-3 justify-content-center d-flex">
+                        <a href="mailto:#" class="redSocial">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            <div class="row mx-0 mt-3">
+                <div class="col-12">
+                    <img class="img-fluid " alt="payment" src="./img/payment.png">
+                </div>
+            </div>
+            <div class="row mx-0 my-4 fs-6">
+                <div class="col-12">
+                    Copyright © Anon All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Loader 
+    <div class="lds-dual-ring loader" id="loader"></div>
+-->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

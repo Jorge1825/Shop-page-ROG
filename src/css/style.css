@@ -1,0 +1,480 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+/*Banner animado */
+.img_super0{
+    background-image: url(../img/super.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #000;
+    background-size: cover;
+    transition: 2.5s;
+    -webkit-transition: 2.5s;
+    -moz-transition: 2.5s;
+    -ms-transition: 2.5s;
+    -o-transition: 2.5s;
+}
+
+.img_super1{
+    background-image: url(../img/super2.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #000;
+    background-size: cover;
+    transition: 2.5s;
+    -webkit-transition: 2.5s;
+    -moz-transition: 2.5s;
+    -ms-transition: 2.5s;
+    -o-transition: 2.5s;
+}
+.img_super2{
+    background-image: url(../img/super3.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #000;
+    background-size: cover;
+    transition: 2.5s;
+    -webkit-transition: 2.5s;
+    -moz-transition: 2.5s;
+    -ms-transition: 2.5s;
+    -o-transition: 2.5s;
+}
+.img_super3{
+    background-image: url(../img/super4.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #000;
+    background-size: cover;
+    transition: 2.5s;
+    -webkit-transition: 2.5s;
+    -moz-transition: 2.5s;
+    -ms-transition: 2.5s;
+    -o-transition: 2.5s;
+}
+.img_super4{
+    background-image: url(../img/super5.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #000;
+    background-size: cover;
+    transition: 2.5s;
+    -webkit-transition: 2.5s;
+    -moz-transition: 2.5s;
+    -ms-transition: 2.5s;
+    -o-transition: 2.5s;
+}
+
+
+
+#search:focus{
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/*Cuando el foco este en #search aparezaca una sombra en .elementSearch */
+.elementSearch:hover{
+    box-shadow: 0 0 10px rgb(228, 14, 14) !important;
+}
+
+
+
+/* Carrito de compras y table de productos */
+
+
+.btn-clear-car{
+    background: rgba(173, 173, 173, 0.479);
+    background: linear-gradient(0deg, rgba(102, 102, 102, 0.795) 0%, rgb(196, 196, 196) 100%);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(155, 155, 155);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.btn-clear-car:hover{
+    opacity: 1;
+    background: rgba(173, 173, 173, 0.479);
+    background: linear-gradient(0deg, rgba(102, 102, 102, 0.795) 0%, rgb(196, 196, 196) 100%);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(155, 155, 155);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.5s;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+
+
+
+.btn-buy-car{
+    background: rgba(200, 32, 29, 0.479);
+    background: linear-gradient(0deg, rgba(201, 25, 22, 0.795) 0%, rgb(109, 10, 10) 100%);
+    color: rgb(248, 248, 248);
+    border: 1px solid rgb(155, 155, 155);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.btn-buy-car:hover{
+    background: rgba(200, 32, 29, 0.479);
+    background: linear-gradient(0deg, rgba(182, 24, 21, 0.795) 0%, rgb(155, 44, 44) 100%);
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid rgb(155, 155, 155);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.7s;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
+}
+
+.delete-btn{
+
+    display: block;
+    background: transparent;
+    color: rgb(185, 20, 20);
+    border: transparent;
+    border-radius: 50%;
+    text-decoration: none;
+
+
+}
+
+
+
+
+#compra{
+    position: relative;
+    color: rgb(202, 19, 19);
+
+}
+/*  crear un elemnto sobre #compra el cual simule un circulo con un contador de items */
+#compra::after{
+    content: attr(data-count);
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0.4em;
+    background: rgb(202, 19, 19);
+    color: rgb(255, 255, 255);
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 2px 2px;
+}
+
+
+#compra:hover{
+    color: rgba(48, 48, 48, 0.878);
+}
+
+#compra:hover::after{
+    background-color: rgba(48, 48, 48, 0.878);
+}
+
+
+#compra .tabla{
+    position: absolute;
+    top: 55px;
+    right: -85px;
+    width: 500px;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;   
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    translate: translateX(-50%) translateY(-50px);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    table-layout: fixed;
+    z-index: 3;
+    font-size: 12px;
+    box-shadow:0px 0px 10px inset rgba(179, 20, 20, 0.418);
+}
+
+#compra:hover .tabla{
+    visibility: visible;
+    opacity: 1;
+    top: 30px;
+    translate: translateX(-50%) translateY(0px);
+}
+
+#nombreTabla{
+    min-width: 100px;
+    max-width: 100px;
+    word-wrap: break-word;
+}
+#cantidadTabla{
+    min-width: 90px;
+    max-width: 90px;
+    word-wrap: break-word;
+
+}
+.btnTable{
+    min-width: 50px;
+    max-width: 50px;
+    word-wrap: break-word;
+}
+
+
+.tabla #table{
+
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+
+
+
+
+#compra .tabla-movil{
+    position: absolute;
+    top: 55px;
+    right: -46px;
+    width: 95vw;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;   
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    translate: translateX(-50%) translateY(-50px);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    table-layout: fixed;
+    z-index: 3;
+    font-size: 12px;
+    box-shadow:0px 0px 10px inset rgba(179, 20, 20, 0.418);
+
+}
+#compra:hover .tabla-movil{
+    visibility: visible;
+    opacity: 1;
+    top: 30px;
+    translate: translateX(-50%) translateY(0px);
+}
+.tabla-movil #table{
+
+    height: 200px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+
+.txt-none{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+
+/* Banner con los texto */
+
+.banner-text{
+
+    background: rgb(200,32,29);
+background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.546) 100%);
+    color: white;
+
+}
+
+
+
+
+
+
+/*boton para comprar el producto mostrado*/
+.btn-buy{
+    background: rgb(200,32,29);
+    background: linear-gradient(0deg, rgb(200, 32, 29) 0%, rgb(125, 13, 13) 100%);
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 9px #666666;
+  text-shadow: 2px 2px 7px #666666;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    /*dar volumen al boton*/
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: none;
+
+
+
+}
+
+.btn-buy:hover{
+    background: rgb(197, 29, 26);
+    transition: 0.5s;
+    cursor: pointer;
+    color: white;
+
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+
+
+
+.animarTarget:hover{
+    transform: scale(1.015);
+    transition: 0.25s;
+    -webkit-transform: scale(1.015);
+    -moz-transform: scale(1.015);
+    -ms-transform: scale(1.015);
+    -o-transform: scale(1.015);
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -o-transition: 0.25s;
+}
+
+.card{
+    box-shadow: 0 0px 10px inset rgb(167, 167, 167);
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -o-transition: 0.1s;
+}
+
+#imagePc:hover{
+    transform: scale(1.1);
+    transition: 0.4s;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+.redSocial{
+    text-decoration: none;
+    color: rgb(163, 163, 163);
+}
+.redSocial:hover{
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+
+/* Loader */
+
+/* 
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid rgb(199, 13, 13);
+    border-color: rgb(178, 0, 0) transparent rgb(178, 0, 0) transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loader{
+    background:white ;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    clip-path: circle(141.2% at 100% 0);
+    transition:clip-path 0.3 ease-in-out;
+    -webkit-transition:clip-path 0.3 ease-in-out;
+    -moz-transition:clip-path 0.3 ease-in-out;
+    -ms-transition:clip-path 0.3 ease-in-out;
+    -o-transition:clip-path 0.3 ease-in-out;
+}
+
+.loader2{
+    clip-path: circle(0% at 100% 0);
+} */
