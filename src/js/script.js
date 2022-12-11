@@ -1,3 +1,4 @@
+
 //variable global 
 const valueShop= document.getElementById("compra")
 const tableStyle = document.getElementById("tableStyle")
