@@ -1,0 +1,104 @@
+<div class="row align-items-center justify-content-center text-center my-2 mx-0">
+            <div class="col-sm-1 "></div>
+            <div class="col-3 "><img src="/img/logo.png" alt="Logo D1" style="height: 60px;"></div>
+            <div class="col-5 col-sm-4 fw-bold fs-3">REPUBLIC OF GAMERS</div>
+            <div class="col-3 justify-content-center ">
+                <!-- crear un carrito de compras que sobre él haya un circulo con el numero de items -->
+             
+                    <i data-count="0" id="compra" class="fa fa-cart-plus fs-3 me-3 ">
+                    <div class="tabla d-none d-sm-block">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <table id="tableStyle" class="table text-center align-middle d-block opacity-0">
+                                        <thead class="d-block">
+                                            <tr>
+                                                <th id="nombreTabla" scope="col">Imagen</th>
+                                                <th id="nombreTabla" scope="col">Nombre</th>
+                                                <th id="nombreTabla" scope="col">Precio</th>
+                                                <th id="cantidadTabla" scope="col">Cantidad</th>
+                                                <th scope="col" class="btnTable"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table" class="d-block align-middle">
+                                            <p id="msg" class="txt-none fs-6">Aún no has agregado nada a tu carrito</p>
+
+
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <div class="modal-footer justify-content-end">
+
+                                    <div class="col-11">
+                                        <p id="Total" class="fw-light fs-5 text-start text-dark ps-2 mb-2 ">Total: $ 0,00
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-5"><button
+                                            class="btn-clear-car w-100 d-block text-center fs-6 fw-lighter mb-1 "
+                                            onclick="clearCar()">Vaciar carrito</button></div>
+                                    <div class="col-5">
+                                        <button id="btnComprar" class="btn-buy-car w-100 d-block text-center fs-6 fw-lighter"
+                                            onclick="ShopCumputers()">Comprar</button></div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Tabla para movil -->
+                    <div class="tabla-movil d-block d-sm-none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <table id="tableStyle" class="placeholder-wave table text-center align-middle d-block overflow-auto">
+                                        <thead class="d-block">
+                                            <tr>
+                                                <th id="nombreTabla" scope="col">Imagen</th>
+                                                <th id="nombreTabla" scope="col">Nombre</th>
+                                                <th id="nombreTabla" scope="col">Precio</th>
+                                                <th id="cantidadTabla" scope="col">Cantidad</th>
+                                                <th scope="col" class="btnTable"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table" class="d-block align-middle">
+                                            <p id="msg" class="txt-none fs-6">Aún no has agregado nada a tu carrito</p>
+
+
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <div class="modal-footer justify-content-end">
+
+                                    <div class="col-11">
+                                        <p id="Total" class="fw-light fs-5 text-start text-dark ps-2 mb-2 ">Total: $ 0
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-5"><button
+                                            class="btn-clear-car w-100 d-block text-center fs-6 fw-lighter mb-1 "
+                                            onclick="clearCar()">Vaciar carrito</button></div>
+                                    <div class="col-5">
+                                        <button id="btnComprar" class="btn-buy-car w-100 d-block text-center fs-6 fw-lighter"
+                                            onclick="ShopCumputers()">Comprar</button></div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                </i>
+
+            </div>
+            <div class="col-sm-1"><span></span></div>
+        </div>
