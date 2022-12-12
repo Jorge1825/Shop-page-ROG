@@ -20,42 +20,59 @@
 
 <body class="bg-dark">
 
-    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-
-    <div class="toast-container position-fixed bottom-0 start-0 p-3">
-      <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-animation="true">
-        <div class="toast-header">
-          <img src="./img/logoNotify.png" class="rounded me-2 img-fluid" alt="..." width="30px" height="30px" >
-          <strong class="me-auto">SIN STOCK</strong>
-          <small>Hace 1 segundo</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-         ¡ Has alcanzado el limite de equipos disponibles !
-        </div>
+    <!-- crear un formulario de registro de computadoras donde se pueda ingresar el nombre, la marca, el modelo, el precio, permita agregar caracteristicas una por casilla y la foto de la computadora y l cantidad de unidades que se tienen en stock. -->
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+          <div class="card-header mx-auto">
+              <h3>Registro de Equipos</h3>
+          </div>
+          <div class="card-body mt-3">
+              <form action="/notes/edit/{{note.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="_method" value="PUT">
+                  <div class="form-group col-6 mx-auto mt-2 ">
+                      <label for="name">Nombre</label>
+                      <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre del equipo" autofocus>
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="marca">Marca</label>
+                      <input type="text" name="marca" class="form-control" placeholder="Ingrese la marca del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="modelo">Modelo</label>
+                      <input type="text" name="modelo" class="form-control" placeholder="Ingrese el modelo del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="precio">Precio</label>
+                      <input type="text" name="precio" class="form-control" placeholder="Ingrese el precio del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="caracteristicas">Caracteristicas</label>
+                      <input type="text" name="caracteristicas" class="form-control" placeholder="Ingrese las caracteristicas del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="img">Foto</label>
+                      <input type="file" accept="image/*" multiple name="img" class="form-control" placeholder="Ingrese la foto del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="stock">Stock</label>
+                      <input type="number" name="stock" class="form-control" placeholder="Ingrese la cantidad de equipos">
+                  </div>
+                  
+                  
+                  <div class="form-group col-6 mx-auto mt-4">
+                      <button class="btn btn-primary w-100" type="submit">Guardar</button>
+                  </div>
+  
+              </form>
+          </div>
       </div>
-    </div>
-    </div>
-
-
-
+  </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
-    <script>
 
-
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
-    new bootstrap.Toast(toastLiveExample).show()
-
-  })
-}
-    </script>
 </body>
 
 </html>

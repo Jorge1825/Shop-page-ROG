@@ -2,6 +2,8 @@ const exphbs = require('express-handlebars') //motor de plantillas
 const express = require('express') 
 const path = require('path')
 const morgan = require('morgan') //mostrar peticiones en consola
+const multer = require('multer') //para subir archivos
+const uuid = require('uuid').v4 //para generar id unicos
 const methodOverride = require('method-override') //para poder usar metodos put y delete
 const flash = require('connect-flash') //para mostrar mensajes
 const session = require('express-session') //para guardar datos de sesion
@@ -37,8 +39,18 @@ const app = express();
 
 //middlewares, es decir funciones para ejecutar cuando llegan peticiones
     //convertir datos recibidos del servidor a objeetos json
-    app.use(morgan('dev'));
-    app.use(express.urlencoded({extended:false}));
+    app.use(morgan('dev')); //para mostrar peticiones en consola
+    app.use(express.urlencoded({extended:false})); //para poder recibir datos de formularios
+    
+    const storage = multer.diskStorage({
+        destination: path.join(__dirname, 'public/img/uploads'),
+        filename: (req, file, cb, filename) => {
+            cb(null, uuid() + path.extname(file.originalname)) //generar id unico y concatenarle la extension del archivo
+        }
+    }) //para subir archivos y guardarlos en una carpeta y generar id unico
+
+
+    app.use(multer({storage: storage}).single('image')) //para subir archivos y guardarlos en una carpeta
 
 
     app.use(methodOverride('_method')); //para poder usar metodos put y delete
