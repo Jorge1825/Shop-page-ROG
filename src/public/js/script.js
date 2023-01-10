@@ -363,3 +363,45 @@ window.addEventListener("load", function(){
     this.document.getElementById("loader").classList.toggle("loader2")
 })
  */
+
+
+
+
+
+
+let dropzone = document.getElementById('dropzone')
+let imgPcPrimary = document.getElementById('imgPcPrimary')
+
+dropzone.addEventListener('dragover', function(e){
+
+    e.preventDefault();
+
+});
+
+
+
+
+dropzone.addEventListener('drop', function(e){
+    e.preventDefault()
+    let file = e.dataTransfer.files[0]
+    let reader = new FileReader()
+
+    reader.onload = function(e){
+        let img = document.createElement('img')
+    
+        console.log(e)
+        img.src= e.target.result
+        console.log(e.target.result)
+        img.style.width= '100%'
+        img.style.height='100%'
+        dropzone.innerHTML =''
+        dropzone.appendChild(img)
+    };
+    reader.readAsDataURL(file)
+
+})
+
+
+function mostrarinput(input){
+    console.log(input.value)
+}

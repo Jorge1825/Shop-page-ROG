@@ -1,15 +1,17 @@
-<div class="col-md-6 mx-auto">
+<div draggable="false" class="bg-gradient" ondragstart="return false;" onmousedown="return false">
+<div class="col-11 mx-auto py-5">
       <div class="card">
-          <div class="card-header mx-auto">
+          <div class="card-header mx-auto bg-transparent mt-3">
               <h3>Registro de Equipos</h3>
           </div>
-          <div class="card-body mt-3">
+          <div class="card-body mt-3 ">
               <form action="/upload" method="POST" enctype="multipart/form-data">
-                  <div class="form-group col-6 mx-auto mt-2 ">
+              <div class="row">
+                  <div class="form-group col-3 mx-auto mt-2 bg-info">
                       <label for="name">Nombre</label>
                       <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre del equipo" autofocus>
                   </div>
-                  <div class="form-group col-6 mx-auto mt-2">
+                  <div class="form-group col-3 mx-auto mt-2 bg-info">
                       <label for="marca">Marca</label>
                       <input type="text" name="marca" class="form-control" placeholder="Ingrese la marca del equipo">
                   </div>
@@ -27,19 +29,25 @@
                   </div>
                   <div class="form-group col-6 mx-auto mt-2">
                       <label for="image">Foto</label>
-                      <input type="file" accept="image/*" multiple name="image" class="form-control" placeholder="Ingrese la foto del equipo">
+                      <input id="imgPcPrimary" type="file" onchange="mostrarinput(this)" accept="image/*" name="image" class="form-control" placeholder="Ingrese la foto del equipo">
                   </div>
                   <div class="form-group col-6 mx-auto mt-2">
                       <label for="stock">Stock</label>
                       <input type="number" name="stock" class="form-control" placeholder="Ingrese la cantidad de equipos">
+                  </div>
+                  <div draggable="true" class="opacity-100 form-group col-6 mx-auto mt-2" id="dropzone" 
+                  style="background-color: #ccc;border:2px dashed #999; width: 200px; height: 200px;">
+                    Arrastra y suelta aqui
+                      
                   </div>
                   
                   
                   <div class="form-group col-6 mx-auto mt-4">
                       <button class="btn btn-primary w-100" type="submit">Guardar</button>
                   </div>
-  
+                </div>
               </form>
           </div>
       </div>
+  </div>
   </div>
