@@ -29,18 +29,34 @@
                   </div>
                   <div class="form-group col-6 mx-auto mt-2">
                       <label for="image">Foto</label>
-                      <input id="imgPcPrimary" type="file" onchange="mostrarinput(this)" accept="image/*" name="image" class="form-control" placeholder="Ingrese la foto del equipo">
+
+                        <div>
+                            <div class="drop-area" id="drop-area">
+                                <div class="elements">
+                                    <h2 id="dragText">Arrastra y suelta imagenes</h2>
+                                <span>o</span>
+                                <button type="button" id="btnUploadImg">Selecciona tus archivos</button>
+                                <input type="file" name="" id="input-file" accept=".png,.jpg,.jpeg" hidden multiple />
+                                <div id="msgUpload" class="failure"></div>
+                                
+                                </div>
+                                <div class="img" id="imgPc">
+                                    
+                                    
+                                </div>
+                                
+                            </div>
+
+
+                        </div>
+
+
                   </div>
                   <div class="form-group col-6 mx-auto mt-2">
                       <label for="stock">Stock</label>
                       <input type="number" name="stock" class="form-control" placeholder="Ingrese la cantidad de equipos">
                   </div>
-                  <div draggable="true" class="opacity-100 form-group col-6 mx-auto mt-2" id="dropzone" 
-                  style="background-color: #ccc;border:2px dashed #999; width: 200px; height: 200px;">
-                    Arrastra y suelta aqui
-                      
-                  </div>
-                  
+              
                   
                   <div class="form-group col-6 mx-auto mt-4">
                       <button class="btn btn-primary w-100" type="submit">Guardar</button>

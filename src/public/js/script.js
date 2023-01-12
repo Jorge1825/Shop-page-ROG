@@ -366,42 +366,154 @@ window.addEventListener("load", function(){
 
 
 
+const dropArea = document.getElementById("drop-area")
+const dragText = document.getElementById('dragText')
+const button = document.getElementById('btnUploadImg')
+const input = document.getElementById('input-file')
+const img = document.getElementById('imgPc')
+const msgUpload = document.getElementById('msgUpload')
+let fileUrl;
+let files;
 
 
-
-let dropzone = document.getElementById('dropzone')
-let imgPcPrimary = document.getElementById('imgPcPrimary')
-
-dropzone.addEventListener('dragover', function(e){
-
-    e.preventDefault();
-
-});
+button.addEventListener('click',(e) =>{
+    input.click();
+    alert("click")
+})
+img.addEventListener('click',(e) =>{
+    input.click();
+})
 
 
+input.addEventListener('change',(e)=>{
+    files= input.files
+    dropArea.classList.add('active')
+    showFiles(files)
+    dropArea.classList.remove('active')
 
+})
 
-dropzone.addEventListener('drop', function(e){
+dropArea.addEventListener('dragover',(e)=>{
     e.preventDefault()
-    let file = e.dataTransfer.files[0]
-    let reader = new FileReader()
+    dropArea.classList.add('active')
+    dropArea.classList.remove('uploaded')
+    dragText.textContent = 'Suelta para subir los archivos'
+})
 
-    reader.onload = function(e){
-        let img = document.createElement('img')
+dropArea.addEventListener('dragleave',(e)=>{
+    e.preventDefault()
+    dropArea.classList.remove('active')
+    dropArea.classList.add('uploaded')
+    dragText.textContent = 'Arrastra y suelta imagenes'
+})
+
+dropArea.addEventListener('drop',(e)=>{
+    e.preventDefault()
+    files = e.dataTransfer.files;
+    showFiles(files)
+    dropArea.classList.remove('active')
+ 
+    dragText.textContent = 'Arrastra y suelta imagenes'
+})
+
+
+
+document.addEventListener('dragover' ,(e)=>{
+    e.preventDefault()
+    dropArea.classList.remove('uploaded')
+})
+
+document.addEventListener('dragleave',(e)=>{
+    e.preventDefault()
+    dropArea.classList.remove('uploaded')
+})
+
+document.addEventListener('drop',(e)=>{
+    e.preventDefault()
+    if(fileUrl){
+        dropArea.classList.add('uploaded')
+    }
     
-        console.log(e)
-        img.src= e.target.result
-        console.log(e.target.result)
-        img.style.width= '100%'
-        img.style.height='100%'
-        dropzone.innerHTML =''
-        dropzone.appendChild(img)
-    };
-    reader.readAsDataURL(file)
 
 })
 
 
-function mostrarinput(input){
-    console.log(input.value)
+
+function showFiles(files){
+    console.log(files.length)
+    if(files.length ==1){
+        processFile(files[0])
+       
+    }else{
+
+        fileUrl = undefined
+        dropArea.classList.remove('uploaded')
+        msgUpload.innerText='No es posible cargar más de un archivo'
+    
+        setTimeout(() => {
+            msgUpload.innerText=""
+        }, 3000);
+
+    }
 }
+
+function processFile(file){
+    const docType = file.type;
+    const validExtensions = ['image/jpeg','image/png', 'image/jpg']
+
+    if(validExtensions.includes(docType)){
+        //archivo valido
+        const fileReader = new FileReader();
+        const id = `file-${Math.random().toString(32).substring(7)}`
+
+        fileReader.addEventListener('load',e=>{
+            fileUrl = fileReader.result
+            
+            img.innerHTML= '<h5 style="color: green;">Loading...</h5>'
+        })
+
+        fileReader.readAsDataURL(file)
+        uploadFile(file,id)
+
+    }else{
+        fileUrl = undefined
+        dropArea.classList.remove('uploaded')
+        msgUpload.innerText='Este tipo de archivo no es soportado asegurese que sea .png, .jpg o .jpeg'
+    
+        setTimeout(() => {
+            msgUpload.innerText=""
+        }, 3000);
+    }
+
+}
+
+
+
+async function uploadFile(file,id){
+    const formData= new FormData()
+    
+    formData.append("file", file)
+
+    try {
+        const response = await fetch('http://localhost:3000/upload',{
+            method: "POST",
+            body: formData
+        })
+
+        const responseText = await response.text();
+
+        dropArea.classList.add('uploaded')
+        console.log(fileUrl)
+        img.innerHTML=`<img src="${fileUrl}" width="200px">`
+    
+    } catch (error) {
+        fileUrl = undefined
+        dropArea.classList.remove('uploaded')
+        img.innerHTML=''
+        msgUpload.innerText='No fue posible subir la imagen, intentelo nuevamente'
+    
+        setTimeout(() => {
+            msgUpload.innerText=""
+        }, 3000);
+    }   
+} 
