@@ -1,14 +1,15 @@
 const {Router}= require('express')
-
 const router = Router()
-
+const {renderIndex,redirectIndex} = require('../controllers/index.controller')
 const Product = require('../models/Product')
 
-router.get('/', (req, res)=>{
-    res.render('index')
-} );
+router.get('/',renderIndex);
+
+//NO OLVIDAR LAS RUTAS NO PROGRAMADAS
 
 
+
+/* 
 router.get('/upload', (req, res)=>{
     res.render('upload')
 })
@@ -37,7 +38,7 @@ router.post('/upload', async (req, res)=>{
 
     res.redirect('/upload')
 })
-
+ */
 
 
 module.exports = router

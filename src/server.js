@@ -13,7 +13,7 @@ const passport = require('passport') //para autenticar usuarios
 const app = express();
 
 
-/* require('./config/passport') //configurar passport */
+require('./config/passport') //configurar passport
 
 
 //configuracion
@@ -71,12 +71,15 @@ const app = express();
 
 
 
+   
+
+
     
 
 
 //variables globales
     //para poder usar mensajes en cualquier parte de la aplicacion
- /*    app.use((req, res, next)=>{
+     app.use((req, res, next)=>{
         res.locals.success_msg = req.flash('success_msg');
         res.locals.error_msg = req.flash('error_msg');
         //error de passport
@@ -85,15 +88,14 @@ const app = express();
         //para saber si el usuario esta logeado y con esto poder mostrar el menu logout o no
         res.locals.user = req.user || null;
         next();
-    }) */
+    }) 
 
 
 //rutas
     
 
     app.use(require('./routes/index.routes'));
-/*     app.use(require('./routes/notes.routes'));
-    app.use(require('./routes/users.routes')); */
+    app.use(require('./routes/users.routes'));
 
 
 //archivos estaticos
