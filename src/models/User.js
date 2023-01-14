@@ -6,7 +6,7 @@ const bcryp = require('bcryptjs')
 
 //crear schema 
 const UserSquema = new Schema({
-    name: {
+    nombre: {
         type: String,
         required: true
     },
@@ -28,8 +28,8 @@ const UserSquema = new Schema({
         required: true
     },
     estado:{
-        type:String,
-        default:'activa'
+        type:Number,
+        default:0
     }
     
 },{

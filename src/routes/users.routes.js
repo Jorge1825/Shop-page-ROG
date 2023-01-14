@@ -6,7 +6,9 @@ const {
     signUp,
     renderSignInForm,
     signin,
-    logout
+    logout, 
+    renderUpload,
+    sendUpload
     } = require('../controllers/users.controller');
 
 
@@ -21,6 +23,13 @@ router.post('/users/signin', signin);
 //cerrar sesion
 router.get('/users/logout', logout);
 
+
+
+//Upload de nuevos productos
+router.get('/users/upload', renderUpload)
+
+router.post('/users/upload',sendUpload)
+ 
 
 
 module.exports=  router;

@@ -6,12 +6,14 @@ const passport = require('passport');
 
 //renderizar el formulario de registro
 UsersCtrl.renderSignUpForm = (req, res) => {
+    res.locals.NavFooterActive = false
     res.render('users/signup');
 }
 
 
 //registrar un nuevo usuario
 UsersCtrl.signUp = async (req, res) => {
+    res.locals.NavFooterActive = false
     const errors = [];
     const {name, email,password,confirm_password}= req.body
 
@@ -48,6 +50,7 @@ UsersCtrl.signUp = async (req, res) => {
 
 //renderizar el formulario de inico de sesion
 UsersCtrl.renderSignInForm = (req, res) => {
+    res.locals.NavFooterActive = false
     res.render('users/signin');
 }
 
@@ -69,6 +72,40 @@ UsersCtrl.logout = (req, res) => {
     
     
 }
+
+
+
+
+UsersCtrl.renderUpload=(req, res)=>{
+    res.locals.NavFooterActive = false
+    res.render('users/upload')
+}
+
+UsersCtrl.sendUpload=async (req, res)=>{
+    console.log(req.file)
+
+    const product = new Product({
+        name: req.body.name,
+        marca: req.body.marca,
+        modelo: req.body.modelo,
+        precio: req.body.precio,
+        caracteristicas: req.body.caracteristicas,
+        image: {
+            filename: req.file.filename,
+            path: '/img/uploads/'  + req.file.filename,
+            mimetype: req.file.mimetype,
+            size: req.file.size
+        },
+        stock: req.body.stock
+    })
+
+    
+    await product.save()
+    
+
+    res.redirect('/upload')
+}
+ 
 
 
 

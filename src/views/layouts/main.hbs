@@ -25,9 +25,14 @@
 
 
 <div class="container-fluid justify-content-center p-0 m-0 ">
-    {{> navigation}}
+    {{#if NavFooterActive}}
+        {{> navigation}}
+    {{/if}}
     {{{body}}}
+
+    {{#if NavFooterActive}}
     {{> footer}}
+    {{/if}}
 </div>
 
 

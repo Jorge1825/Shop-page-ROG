@@ -5,325 +5,267 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./src/public/css/bootstrap.min.css">
     <title>Republic of gamers</title>
     <!-- Insertar icono -->
     <link rel="shortcut icon" href="./img/logo.ico">
 
 </head>
+<style>
+    
 
+    .img-background-signup{
+        background-image: url('./src/public/img/super.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+.target{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0,0.5);
+    overflow: hidden;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0px 0px 0px 0.2px white;
+}
+.target::before{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 140%;
+    background: linear-gradient(rgb(255, 255, 255),var(--redColor));
+    animation: girar 30s linear infinite;
+}
+.target::after{
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: rgb(32, 32, 32);
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+@keyframes girar{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+ 
+.btn-signin{
+        background-color: var(--redColor);
+        color:white;
+        
+    }
+
+.btn-signin:hover{
+        background-color: var(--redColor);
+        color:rgb(221, 221, 221);
+        box-shadow:inset 0px 0px 5px rgb(248, 248, 248)
+        
+    }
+    .btn-signin:focus{
+        background-color: rgb(8, 8, 8);
+        color:rgb(221, 221, 221);
+        box-shadow:inset 0px 0px 5px rgb(248, 248, 248)
+        
+    }
+
+    
+.boxInput{
+    position: relative;
+}
+
+.boxInput input{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    padding: 5px 2px 2px 7px;
+
+}
+.boxInput span{
+    position: absolute;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    pointer-events: none;
+    font-size: 0.8em;
+    transition: 0.5S;
+    -webkit-transition: 0.5S;
+    -moz-transition: 0.5S;
+    -ms-transition: 0.5S;
+    -o-transition: 0.5S;
+    transform: translateY(-100%);
+
+}
+.boxInput input:focus ~ span,
+.boxInput input:valid ~ span{
+    transform: translateY(-260%);
+    font-size: 0.8em;
+    padding-left: 5px;
+}
+.boxInput input:focus,
+.boxInput input:valid{
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+.boxInput i{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    transform: translateY(5px);
+    background: rgb(255, 255, 255);
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+    overflow: hidden;
+}
+.boxInput i::before{
+    content: '';
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--redColor), rgb(0, 0, 0),rgb(255, 255, 255), rgb(0, 0, 0),var(--redColor));
+    animation: animate 3s linear infinite;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+
+
+.boxInput input:focus ~ i::before,
+.boxInput input:valid ~ i::before{
+    left: 0%;
+}
+
+
+
+@keyframes animate{
+    0%{
+        background-position-x: 0%;
+    }
+    100%{
+        background-position-x: 185px;
+    }
+}
+
+
+
+</style>
 <body>
-
-    <div class="container-fluid justify-content-center p-0 m-0 ">
-
-        <!-- naybar -->
-        <div class="row align-items-center justify-content-center text-center my-2 mx-0">
-            <div class="col-sm-1 "></div>
-            <div class="col-3 "><img src="./img/logo.png" alt="Logo D1" style="height: 60px;"></div>
-            <div class="col-5 col-sm-4 fw-bold fs-3">REPUBLIC OF GAMERS</div>
-            <div class="col-3 justify-content-center ">
-                <!-- crear un carrito de compras que sobre él haya un circulo con el numero de items -->
-             
-                    <i data-count="0" id="compra" class="fa fa-cart-plus fs-3 me-3 ">
-                    <div class="tabla d-none d-sm-block">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <table id="tableStyle" class="table text-center align-middle d-block opacity-0">
-                                        <thead class="d-block">
-                                            <tr>
-                                                <th id="nombreTabla" scope="col">Imagen</th>
-                                                <th id="nombreTabla" scope="col">Nombre</th>
-                                                <th id="nombreTabla" scope="col">Precio</th>
-                                                <th id="cantidadTabla" scope="col">Cantidad</th>
-                                                <th scope="col" class="btnTable"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="table" class="d-block align-middle">
-                                            <p id="msg" class="txt-none fs-6">Aún no has agregado nada a tu carrito</p>
-
-
-                                        </tbody>
-                                    </table>
-
-
+    <div class="img-background-signup row mx-0 my-0 vh-100 justify-content-center align-items-center">
+        <div class="col-12 px-0 col-lg-8 col-xl-7 col-sm-10 col-md-8 mx-auto">
+            <div class="card target">
+                    <div class="col-12 text-light fw-bold pt-3 z-1 text-center fs-3">
+                            REGISTRAR USUARIO
+                    </div>
+                <div class="card-body z-1 mx-3 px-4 mx-sm-4 mx-md-5 mt-3 ">
+                    <form action="/users/signin" method="POST">
+    
+                
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                    <input type="text" name="name" id="name" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Ingrese un nombre</span>
+                                    <i></i>
                                 </div>
-                                <div class="modal-footer justify-content-end">
-
-                                    <div class="col-11">
-                                        <p id="Total" class="fw-light fs-5 text-start text-dark ps-2 mb-2 ">Total: $ 0,00
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-5"><button
-                                            class="btn-clear-car w-100 d-block text-center fs-6 fw-lighter mb-1 "
-                                            onclick="clearCar()">Vaciar carrito</button></div>
-                                    <div class="col-5">
-                                        <button id="btnComprar" class="btn-buy-car w-100 d-block text-center fs-6 fw-lighter"
-                                            onclick="ShopCumputers()">Comprar</button></div>
-                                </div>
-
-
-
                             </div>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <!-- Tabla para movil -->
-                    <div class="tabla-movil d-block d-sm-none">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <table id="tableStyle" class="placeholder-wave table text-center align-middle d-block overflow-auto">
-                                        <thead class="d-block">
-                                            <tr>
-                                                <th id="nombreTabla" scope="col">Imagen</th>
-                                                <th id="nombreTabla" scope="col">Nombre</th>
-                                                <th id="nombreTabla" scope="col">Precio</th>
-                                                <th id="cantidadTabla" scope="col">Cantidad</th>
-                                                <th scope="col" class="btnTable"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="table" class="d-block align-middle">
-                                            <p id="msg" class="txt-none fs-6">Aún no has agregado nada a tu carrito</p>
-
-
-                                        </tbody>
-                                    </table>
-
-
+    
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                    <input type="tel" name="phone" id="phone" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Ingrese un telefono</span>
+                                    <i></i>
                                 </div>
-                                <div class="modal-footer justify-content-end">
-
-                                    <div class="col-11">
-                                        <p id="Total" class="fw-light fs-5 text-start text-dark ps-2 mb-2 ">Total: $ 0
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-5"><button
-                                            class="btn-clear-car w-100 d-block text-center fs-6 fw-lighter mb-1 "
-                                            onclick="clearCar()">Vaciar carrito</button></div>
-                                    <div class="col-5">
-                                        <button id="btnComprar" class="btn-buy-car w-100 d-block text-center fs-6 fw-lighter"
-                                            onclick="ShopCumputers()">Comprar</button></div>
-                                    </div>
-                                </div>
-
-
-
                             </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-                </i>
-
-            </div>
-            <div class="col-sm-1"><span></span></div>
-        </div>
-
-
-
-
-
-    <!-- Banner animado -->
-    <div class="row bg-light mx-0 disabled">
-        <div id="CambioImagen" class="col-12 p-0 img_super0">
-            <div class="row justify-content-center mt-5 mx-0">
-                <div class="col-12 my-4 ">
-
-                    <div class="row mt-5 mx-0 ">
-                        <div class="col-2"></div>
-                        <div class="col-md-5 col-12 text-md-start text-center fs-3 text-light">Te ofrecemos lo mejor en
-                            tecnologia</div>
-
-
-                    </div>
-                    <div class="row my-4 mx-0 ">
-                        <div class="col-2"></div>
-                        <div class="col-12 col-md-5 text-center text-md-start fs-6 ms-1  text-light">Solo hoy un 20% de
-                            descuento</div>
-
-
-                    </div>
-                    <div class="row justify-content-center justify-content-md-start mx-0">
-                        <div class="col-md-2 col-0">
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-10">
-                            <div class="input-group elementSearch">
-
-                                <input class="form-control border rounded-start" type="search" list="searchPc"
-                                    id="search" name="searching">
-                                <datalist id="searchPc">
-
-                                </datalist>
-
-                                <button class="btn bg-white rounded-end" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
+    
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                    <input type="text" name="nit" id="nit" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Ingrese un nit</span>
+                                    <i></i>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                <input type="text" name="email" id="email" class="form-control " placeholder="" required oninvalid="return false">
+                                <span>Ingrese un correo</span>
+                                <i></i>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Ingrese una contraseña</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                    <input type="password" name="password2" id="password2" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Repita la contraseña</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group mt-2 boxInput pt-4">
+                                    <span>Estado de la cuenta</span>
+ 
+                                    <select class="form-select p-1 ps-2 bg-dark text-light" name="combo" id="state">
+                                        <option value="0" selected>Activa</option>
+                                        <option value="1">Inactiva</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="form-group mt-3 pt-4">
+                            <button type="submit" class="btn btn-signin w-100">Signin</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-
-            <div class="row my-5 mx-0"></div>
-            <div class="row justify-content-center banner-text mx-0">
-                <div class="col-8 my-3 bg-transparent">
-                    <div class="row">
-                        <div class="col-md-4 col-12">
-                            <div class="row text-center justify-content-center">
-                                <div class="col-12 "><i class="fa-regular fa-lightbulb fs-1"></i></div>
-                                <div class="col-12 mt-2"><span>Más de 1000 equipos disponibles</span><br><span>Descubre
-                                        el
-                                        tuyo</span></div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <div class="row mt-4 mt-md-0 text-center justify-content-center ">
-                                <div class="col-12 mx-0  "><i class="fa-solid fa-question fs-1"></i></div>
-                                <div class="col-12  mt-2 "><span>¿No sabes que elegir?</span><br><span>Nosotros te
-                                        ayudamos</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <div class="row mt-4 mt-md-0 text-center justify-content-center">
-                                <div class="col-12"><i class="fa-solid fa-clock fs-1"></i></div>
-                                <div class="col-12 mt-2"><span>¿Sin tiempo en tu agenda?</span><br><span>Disponibles las
-                                        24
-                                        horas</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-    <!-- Productos -->
-    <div class="row text-center mt-5 mx-0">
-        <div class=" col-12 fs-2 fw-semibold">Lista de equipos</div>
-    </div>
-
-    <div class="row justify-content-center my-4 mx-0">
-        <div class="col-10 justify-content-center d-flex">
-            <div id="target" class="row justify-content-center">
-
             </div>
         </div>
     </div>
-
-
-
-
-
-    <!-- msg emergente para mensajes de error o de resultados -->
-    <div class="toast-container position-fixed bottom-0 start-0 p-3">
-        <div id="notify" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-animation="true">
-          <div class="toast-header">
-            <img src="./img/logoNotify.png" class="rounded me-2 img-fluid" alt="..." width="30px" height="30px" >
-            <strong id="titleNotify" class="me-auto">title</strong>
-            <small>Hace 1 segundo</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div id="bodyNotify" class="toast-body">
-           bodytext
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-    <!-- Footer -->
-  
-        <footer class="bg-dark fs5 p-2 mt-5 text-center" style="color:grey;">
-            <div class="row mx-0 justify-content-center mt-2">
-                <div class="col-5 col-md-3 fs-3">
-                    <div class="row mx-0 ">
-                    <!-- Redes sociales facebook,instagram,twiter,correo -->
-                    <div class="col-3 justify-content-center d-flex">
-                        <a href="#"class="redSocial">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                    </div>
-                    <div class="col-3 justify-content-center d-flex">
-                        <a href="#" class="redSocial">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="col-3 justify-content-center d-flex">
-                        <a href="#" class="redSocial">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                    </div>
-                    <div class="col-3 justify-content-center d-flex">
-                        <a href="mailto:#" class="redSocial">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-
-                </div>
-            </div>
-            <div class="row mx-0 mt-3">
-                <div class="col-12">
-                    <img class="img-fluid " alt="payment" src="./img/payment.png">
-                </div>
-            </div>
-            <div class="row mx-0 my-4 fs-6">
-                <div class="col-12">
-                    Copyright © Anon All Rights Reserved.
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-
-    <!-- Loader 
-    <div class="lds-dual-ring loader" id="loader"></div>
--->
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+    <script src="./src/public/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

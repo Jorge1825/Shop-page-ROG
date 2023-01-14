@@ -13,7 +13,7 @@ const passport = require('passport') //para autenticar usuarios
 const app = express();
 
 
-require('./config/passport') //configurar passport
+require('./config/passport') //configurar passport para mantener logueado al usuario
 
 
 //configuracion
@@ -69,11 +69,7 @@ require('./config/passport') //configurar passport
     //configurar flash
     app.use(flash());
 
-
-
    
-
-
     
 
 
@@ -87,15 +83,11 @@ require('./config/passport') //configurar passport
 
         //para saber si el usuario esta logeado y con esto poder mostrar el menu logout o no
         res.locals.user = req.user || null;
+
+        res.locals.NavFooterActive = true;
+
         next();
     }) 
-
-
-//rutas
-    
-
-    app.use(require('./routes/index.routes'));
-    app.use(require('./routes/users.routes'));
 
 
 //archivos estaticos
@@ -103,6 +95,11 @@ require('./config/passport') //configurar passport
     app.use(express.static(path.join(__dirname, 'public')));
 
 
+//rutas
+
+    app.use(require('./routes/index.routes'));
+    app.use(require('./routes/users.routes'));
+    app.use(require('./routes/error.routes'));
 
 //exportar el modulo de express para el server
 module.exports = app;
