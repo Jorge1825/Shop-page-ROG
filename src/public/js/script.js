@@ -378,7 +378,6 @@ let files;
 
 button.addEventListener('click',(e) =>{
     input.click();
-    alert("click")
 })
 img.addEventListener('click',(e) =>{
     input.click();
@@ -397,14 +396,14 @@ dropArea.addEventListener('dragover',(e)=>{
     e.preventDefault()
     dropArea.classList.add('active')
     dropArea.classList.remove('uploaded')
-    dragText.textContent = 'Suelta para subir los archivos'
+    dragText.textContent = 'Suelta para subir la imagen'
 })
 
 dropArea.addEventListener('dragleave',(e)=>{
     e.preventDefault()
     dropArea.classList.remove('active')
     dropArea.classList.add('uploaded')
-    dragText.textContent = 'Arrastra y suelta imagenes'
+    dragText.textContent = 'Arrastra y suelta la imagen'
 })
 
 dropArea.addEventListener('drop',(e)=>{
@@ -413,7 +412,7 @@ dropArea.addEventListener('drop',(e)=>{
     showFiles(files)
     dropArea.classList.remove('active')
  
-    dragText.textContent = 'Arrastra y suelta imagenes'
+    dragText.textContent = 'Arrastra y suelta la imagen'
 })
 
 
@@ -448,7 +447,7 @@ function showFiles(files){
 
         fileUrl = undefined
         dropArea.classList.remove('uploaded')
-        msgUpload.innerText='No es posible cargar más de un archivo'
+        msgUpload.innerText='No es posible cargar más de una imagen'
     
         setTimeout(() => {
             msgUpload.innerText=""

@@ -439,9 +439,20 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
     -o-transition: 0.5s;
 }
 
+/* upload */
+.img-background-upload{
+    background-image: url('../img/super5.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.span-upload{
+    text-shadow: 0.3px 0.5px  rgb(238, 238, 238);
+}
 
 
-/* drag and drop */
+    /* drag and drop */
 .drop-area{
     border: 5px dashed #ddd;
     
@@ -509,7 +520,6 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
     display: none;
 }
 
-
 .file-container{
     display: flex;
     align-items: center;
@@ -519,13 +529,16 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
 
 }
 
-
-
-
 .failure{
     color: var(--redColor);
     text-align: center;
 }
+
+#btnUploadImg{
+    background-color: var(--redColor);
+}
+
+
 
 
 /* signIn */

@@ -1,69 +1,401 @@
-<div draggable="false" class="bg-gradient" ondragstart="return false;" onmousedown="return false">
-<div class="col-11 mx-auto py-5">
-      <div class="card">
-          <div class="card-header mx-auto bg-transparent mt-3">
-              <h3>Registro de Equipos</h3>
-          </div>
-          <div class="card-body mt-3 ">
-              <form action="/upload" method="POST" enctype="multipart/form-data">
-              <div class="row">
-                  <div class="form-group col-3 mx-auto mt-2 bg-info">
-                      <label for="name">Nombre</label>
-                      <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre del equipo" autofocus>
-                  </div>
-                  <div class="form-group col-3 mx-auto mt-2 bg-info">
-                      <label for="marca">Marca</label>
-                      <input type="text" name="marca" class="form-control" placeholder="Ingrese la marca del equipo">
-                  </div>
-                  <div class="form-group col-6 mx-auto mt-2">
-                      <label for="modelo">Modelo</label>
-                      <input type="text" name="modelo" class="form-control" placeholder="Ingrese el modelo del equipo">
-                  </div>
-                  <div class="form-group col-6 mx-auto mt-2">
-                      <label for="precio">Precio</label>
-                      <input type="number" name="precio" class="form-control" placeholder="Ingrese el precio del equipo">
-                  </div>
-                  <div class="form-group col-6 mx-auto mt-2">
-                      <label for="caracteristicas">Caracteristicas</label>
-                      <input type="text" name="caracteristicas" class="form-control" placeholder="Ingrese las caracteristicas del equipo">
-                  </div>
-                  <div class="form-group col-6 mx-auto mt-2">
-                      <label for="image">Foto</label>
 
-                        <div>
-                            <div class="drop-area" id="drop-area">
-                                <div class="elements">
-                                    <h2 id="dragText">Arrastra y suelta imagenes</h2>
-                                <span>o</span>
-                                <button type="button" id="btnUploadImg">Selecciona tus archivos</button>
-                                <input type="file" name="" id="input-file" accept=".png,.jpg,.jpeg" hidden multiple />
-                                <div id="msgUpload" class="failure"></div>
+    <div class="img-background-upload row mx-0 my-0 py-3 justify-content-center align-items-center">
+        <div class="col-12 px-0 col-lg-10 col-xl-11 col-sm-11 col-md-11 mx-auto">
+            <div class="card bg-dark">
+                    <div class="col-12 text-light fw-bold pt-3 text-center fs-3">
+                            REGISTRAR NUEVO EQUIPO
+                    </div>
+                <div class="card-body mx-3 px-4 mx-sm-4 mx-md-5 ">
+                    <form action="/upload" method="POST">
+    
+                
+                        <div class="row justify-content-start">
+                            <div class="col-12">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Información basica</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="namePc" id="namePc" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Nombre</span>
+                                    <i></i>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="tel" name="marca" id="marca" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Marca</span>
+                                    <i></i>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="modelo" id="modelo" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Modelo</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="system" id="system" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Sistema operativo</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                            
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span>Unidad cd/dvd o integrada</span>
+ 
+                                    <select class="form-select p-1 ps-2 bg-dark text-light" name="tipeDisk" id="tipeDisk">
+                                        <option value="0" selected>NO</option>
+                                        <option value="1">SI</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="teclado" id="teclado" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Caracteristicas del teclado</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="peso" id="peso" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Peso (kg)</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="color" id="color" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Color</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="fuente" id="fuente" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Fuentes de alimentacion</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="precio" id="precio" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>Precio</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="password" name="stock" id="stock" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <span>stock</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="bateria" id="bateria" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Duración de la bateria</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="Dimension" id="Dimension" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Dimensiones</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 pt-5">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Procesador</span>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="procesador" id="procesador" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Nombre procesador</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="velocidadProc" id="velocidadProc" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Velocidad en GHZ</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="nucleos" id="nucleos" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>nucleos</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="hilos" id="hilos" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>hilos</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+
+                            
+                            <div class="col-12 pt-5">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Memoria ram</span>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="sizeRam" id="sizeRam" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Cantidad en GB</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="velocidadRAM" id="velocidadRAM" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Velocidad en MHZ</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                
+
+                            
+                            
+                            <div class="col-12 pt-5">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Almacenamiento</span>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="sizeDisk" id="sizeDisk" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Cantidad en GB</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span>Tipo</span>
+ 
+                                    <select class="form-select p-1 ps-2 bg-dark text-light" style="font-size: 75%;" multiple size="2" name="tipeDisk" id="tipeDisk">
+                                        <option value="0" selected>SSD</option>
+                                        <option value="1">HDD</option>
+                                        <option value="2">SDD M.2</option>
+                                       
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 pt-5">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Targeta Grafica</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span>Tipo</span>
+ 
+                                    <select class="form-select p-1 ps-2 bg-dark text-light" name="tipeGra" id="tipeGra">
+                                        <option value="0" selected>DEDICADA</option>
+                                        <option value="1">INTEGRADA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="nameGra" id="nameGra" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Nombre</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <div class="row">
+                                        <div class="col-9 ">
+                                            <input type="text" name="sizeGra" id="sizeGra" class="form-control" placeholder="" required oninvalid="return false">
+                                            <span>Capacidad de vram</span>
+                                            <i></i>
+                                        </div>
+                                        <div class="col-3 p-0 m-0 pe-3">
+                                            <select class="form-select p-1 m-0 me-3 bg-dark text-light ms-1" name="sizeVramGra" id="sizeVramGra">
+                                                <option value="GB" selected>GB</option>
+                                                <option value="MB">MB</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="velocidadGra" id="velocidadGra" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Velocidad</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-12 pt-5">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Pantalla</span>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="sizeDisplay" id="sizeDisplay" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Tamaño de la pantalla (pulgadas)</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <div class="row justify-content-start">
+                                        <div class="col-5">
+                                            <input type="text" name="reso1" id="reso1" class="form-control " placeholder="" required oninvalid="return false">
+                                            <span>Resolucion(fila)</span>
+                                            <i></i>
+                                        </div>
+                                        <div class="col-1 fw-bolder m-0 p-0 text-light align-self-center justify-content-center d-flex">
+                                            X
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" name="reso2" id="reso2" class="form-control" placeholder="" required oninvalid="return false">
+                                            <span>Resolucion(columna)</span>
+                                            <i></i>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="refresh" id="refresh" class="form-control " placeholder="" required oninvalid="return false">
+                                    <span>Tasa de refresco(HZ)</span>
+                                    <i></i>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span>Tipo</span>
+
+                                    <select class="form-select p-1 ps-2 bg-dark text-light" style="font-size: 75%;" multiple size="2" name="tipeDisk" id="tipeDisk">
+                                        <option value="0" selected>LED</option>
+                                        <option value="1">LCD</option>
+                                        <option value="2">OLED</option>
+                                        <option value="3">PLASMA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            
+<div class="col-12 pt-5">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <span class="fw-bolder span-upload">Información adicional</span>
+                                </div>
+                            </div>
+                            
+
+                            
+
+                            <div class="col-12 col-sm-6">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="form-group  mt-2 boxInput boxInputSignUp pt-4">
+                                    <input type="password" name="" id="" class="form-control" placeholder="" hidden oninvalid="return false" required>
+                                    <span class="">foto</span>
+                                </div>
+
+                                <div class="drop-area mt-2 form-group" id="drop-area">
+                                    <div class="elements row justify-content-center">
+                                        <div class="col-11">
+                                            <h4 class="text-light text-center" id="dragText">Arrastra y suelta la imagen</h4>
+                                        
+                                        </div>
+                                        <div class="col-11 text-light text-center fs-2">
+                                            o
+                                        </div>
+                                        
+                                        <div class="col-10 justify-content-center d-flex">
+                                            <button class="d-flex fs-6 fw-semibold" type="button" id="btnUploadImg">Selecciona tu imagen</button>
+                                        </div>
+                                        <input type="file" name="foto" id="input-file" accept=".png,.jpg,.jpeg" hidden multiple />
+                                        <div id="msgUpload" class="failure"></div>
+                                
+                                    </div>
+                                    <div class="img" id="imgPc">
+                                
+                                
+                                    </div>
                                 
                                 </div>
-                                <div class="img" id="imgPc">
-                                    
-                                    
+                                    </div>
                                 </div>
                                 
                             </div>
 
+                            
+
+
+                            <div class="col-12 col-sm-6 mt-2">
+                                <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
+                                    <input type="text" name="" id="" hidden class="form-control " placeholder="" required oninvalid="return false">
+                                    <span class="">Accesorios</span>
+                                    <textarea class="rounded-2 w-100 p-2 mt-2"></textarea>
+                                    
+                                </div>
+                            </div>
+                            
 
                         </div>
-
-
-                  </div>
-                  <div class="form-group col-6 mx-auto mt-2">
-                      <label for="stock">Stock</label>
-                      <input type="number" name="stock" class="form-control" placeholder="Ingrese la cantidad de equipos">
-                  </div>
-              
-                  
-                  <div class="form-group col-6 mx-auto mt-4">
-                      <button class="btn btn-primary w-100" type="submit">Guardar</button>
-                  </div>
+                        
+                        <div class="form-group mt-3 pt-4 justify-content-center d-flex">
+                            <button type="submit" class="btn btn-signin w-50">Guardar</button>
+                        </div>
+                    </form>
                 </div>
-              </form>
-          </div>
-      </div>
-  </div>
-  </div>
+            </div>
+        </div>
+    </div>

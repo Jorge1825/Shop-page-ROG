@@ -183,88 +183,75 @@
 
 
 </style>
-<body>
-    <div class="img-background-signup row mx-0 my-0 vh-100 justify-content-center align-items-center">
-        <div class="col-12 px-0 col-lg-8 col-xl-7 col-sm-10 col-md-8 mx-auto">
-            <div class="card target">
-                    <div class="col-12 text-light fw-bold pt-3 z-1 text-center fs-3">
-                            REGISTRAR USUARIO
-                    </div>
-                <div class="card-body z-1 mx-3 px-4 mx-sm-4 mx-md-5 mt-3 ">
-                    <form action="/users/signin" method="POST">
-    
-                
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                    <input type="text" name="name" id="name" class="form-control " placeholder="" required oninvalid="return false">
-                                    <span>Ingrese un nombre</span>
-                                    <i></i>
+<body><div draggable="false" class="bg-gradient" ondragstart="return false;" onmousedown="return false">
+<div class="col-11 mx-auto py-5">
+      <div class="card">
+          <div class="card-header mx-auto bg-transparent mt-3">
+              <h3>Registro de Equipos</h3>
+          </div>
+          <div class="card-body mt-3 ">
+              <form action="/upload" method="POST" enctype="multipart/form-data">
+              <div class="row">
+                  <div class="form-group col-3 mx-auto mt-2 bg-info">
+                      <label for="name">Nombre</label>
+                      <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre del equipo" autofocus>
+                  </div>
+                  <div class="form-group col-3 mx-auto mt-2 bg-info">
+                      <label for="marca">Marca</label>
+                      <input type="text" name="marca" class="form-control" placeholder="Ingrese la marca del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="modelo">Modelo</label>
+                      <input type="text" name="modelo" class="form-control" placeholder="Ingrese el modelo del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="precio">Precio</label>
+                      <input type="number" name="precio" class="form-control" placeholder="Ingrese el precio del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="caracteristicas">Caracteristicas</label>
+                      <input type="text" name="caracteristicas" class="form-control" placeholder="Ingrese las caracteristicas del equipo">
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="image">Foto</label>
+
+                        <div>
+                            <div class="drop-area" id="drop-area">
+                                <div class="elements">
+                                    <h2 id="dragText">Arrastra y suelta imagenes</h2>
+                                <span>o</span>
+                                <button type="button" id="btnUploadImg">Selecciona tus archivos</button>
+                                <input type="file" name="" id="input-file" accept=".png,.jpg,.jpeg" hidden multiple />
+                                <div id="msgUpload" class="failure"></div>
+                                
                                 </div>
-                            </div>
-    
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                    <input type="tel" name="phone" id="phone" class="form-control " placeholder="" required oninvalid="return false">
-                                    <span>Ingrese un telefono</span>
-                                    <i></i>
+                                <div class="img" id="imgPc">
+                                    
+                                    
                                 </div>
-                            </div>
-    
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                    <input type="text" name="nit" id="nit" class="form-control " placeholder="" required oninvalid="return false">
-                                    <span>Ingrese un nit</span>
-                                    <i></i>
-                                </div>
+                                
                             </div>
 
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                <input type="text" name="email" id="email" class="form-control " placeholder="" required oninvalid="return false">
-                                <span>Ingrese un correo</span>
-                                <i></i>
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="" oninvalid="return false" required>
-                                    <span>Ingrese una contraseña</span>
-                                    <i></i>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                    <input type="password" name="password2" id="password2" class="form-control" placeholder="" oninvalid="return false" required>
-                                    <span>Repita la contraseña</span>
-                                    <i></i>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput pt-4">
-                                    <span>Estado de la cuenta</span>
- 
-                                    <select class="form-select p-1 ps-2 bg-dark text-light" name="combo" id="state">
-                                        <option value="0" selected>Activa</option>
-                                        <option value="1">Inactiva</option>
-                                    </select>
-                                </div>
-                            </div>
 
                         </div>
-                        
-                        <div class="form-group mt-3 pt-4">
-                            <button type="submit" class="btn btn-signin w-100">Signin</button>
-                        </div>
-                    </form>
+
+
+                  </div>
+                  <div class="form-group col-6 mx-auto mt-2">
+                      <label for="stock">Stock</label>
+                      <input type="number" name="stock" class="form-control" placeholder="Ingrese la cantidad de equipos">
+                  </div>
+              
+                  
+                  <div class="form-group col-6 mx-auto mt-4">
+                      <button class="btn btn-primary w-100" type="submit">Guardar</button>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
+              </form>
+          </div>
+      </div>
+  </div>
+  </div>
     <script src="./src/public/js/bootstrap.bundle.min.js"></script>
 </body>
 
