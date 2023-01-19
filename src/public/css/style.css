@@ -443,8 +443,7 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
 .img-background-upload{
     background-image: url('../img/super5.jpg');
     background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: auto;
     height: 100%;
 }
 .span-upload{
@@ -549,8 +548,11 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
     }
     .img-background{
         background-image: url('../img/super4.jpg');
-        background-repeat: no-repeat;
         background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        background-color: var(--blackColor);
     }
 
 .target{
@@ -648,6 +650,12 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
     transform: translateY(-100%);
 
 }
+
+.boxInput p{
+    color:var(--redColor);
+    font-size: 70%;
+}
+
 .boxInput input:focus ~ span,
 .boxInput input:valid ~ span{
     transform: translateY(-260%);
@@ -708,7 +716,7 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
         background-position-x: 0%;
     }
     100%{
-        background-position-x: 185px;
+        background-position-x: 275px;
     }
 }
 
@@ -720,9 +728,10 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
 
 .img-404{
     background-image: url('../img/404.jpg');
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    height: 100%;
 }
 .title-404{
     font-size: 8em;
@@ -781,9 +790,18 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
 /* signUp */
 .img-background-signup{
     background-image: url('../img/super.jpg');
-        background-repeat: no-repeat;
-        background-position: center center;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-color: var(--blackColor);
 }
 .boxInputSignUp i::before{
     animation:none;
+}
+
+#phoneSignUp::-webkit-inner-spin-button,
+#phoneSignUp::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin:0;
 }

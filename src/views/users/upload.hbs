@@ -1,12 +1,12 @@
 
-    <div class="img-background-upload row mx-0 my-0 py-3 justify-content-center align-items-center">
+    <div class="img-background-upload min-vh-100 row mx-0 my-0 py-3 justify-content-center align-items-center">
         <div class="col-12 px-0 col-lg-10 col-xl-11 col-sm-11 col-md-11 mx-auto">
             <div class="card bg-dark">
                     <div class="col-12 text-light fw-bold pt-3 text-center fs-3">
                             REGISTRAR NUEVO EQUIPO
                     </div>
                 <div class="card-body mx-3 px-4 mx-sm-4 mx-md-5 ">
-                    <form action="/upload" method="POST">
+                    <form action="/upload" method="POST" onsubmit="return submitSign()">
     
                 
                         <div class="row justify-content-start">
@@ -18,32 +18,36 @@
 
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input type="text" name="namePc" id="namePc" class="form-control " placeholder="" required oninvalid="return false">
+                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="namePc" id="namePc" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Nombre</span>
+                                    <p id="namePcText" class="d-none">Ingrese el nombre del equipo</p>
                                     <i></i>
                                 </div>
                             </div>
     
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input type="tel" name="marca" id="marca" class="form-control " placeholder="" required oninvalid="return false">
+                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="marca" id="marca" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Marca</span>
+                                    <p id="marcaText" class="d-none">Ingrese la marca del equipo</p>
                                     <i></i>
                                 </div>
                             </div>
     
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input type="text" name="modelo" id="modelo" class="form-control " placeholder="" required oninvalid="return false">
+                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="modelo" id="modelo" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Modelo</span>
+                                    <p id="modeloText" class="d-none">Ingrese el modelo del equipo</p>
                                     <i></i>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input type="text" name="system" id="system" class="form-control " placeholder="" required oninvalid="return false">
+                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="system" id="system" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Sistema operativo</span>
+                                    <p id="systemText" class="d-none">Ingrese el sistema operativo del equipo</p>
                                     <i></i>
                                 </div>
                             </div>
@@ -63,8 +67,9 @@
 
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input type="text" name="teclado" id="teclado" class="form-control" placeholder="" oninvalid="return false" required>
+                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="teclado" id="teclado" class="form-control" placeholder="" oninvalid="return false" required>
                                     <span>Caracteristicas del teclado</span>
+                                    <p id="tecladoText" class="d-none">Ingrese al menos una caracteristica del teclado</p>
                                     <i></i>
                                 </div>
                             </div>
@@ -392,7 +397,7 @@
                         </div>
                         
                         <div class="form-group mt-3 pt-4 justify-content-center d-flex">
-                            <button type="submit" class="btn btn-signin w-50">Guardar</button>
+                            <button type="submit" onclick="submitSign()" class="btn btn-signin w-50">Guardar</button>
                         </div>
                     </form>
                 </div>

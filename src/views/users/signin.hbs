@@ -1,5 +1,5 @@
 
-    <div class="img-background row bg-danger mx-0 my-0 vh-100 justify-content-center align-items-center">
+    <div class="img-background row bg-dark mx-0 my-0 min-vh-100 justify-content-center align-items-center">
         <div class="col-10 col-lg-4 mx-auto">
             <div class="card target">
                     <div class="col-12 text-light fw-bold pt-3 z-1 text-center fs-3">
@@ -7,25 +7,28 @@
                     </div>
                 <img src="/img/logoNotify.png" class="rounded-circle mx-auto logo img-fluid mt-5 mb-3 z-1" alt="logo.png">
                 <div class="card-body z-1 w-75">
-                    <form action="/users/signin" method="POST">
+                    <form action="/users/signin" method="POST" id="form-signIn" onsubmit="return submitSign()">
     
                         <div class="form-group mt-2 boxInput ">
-                            <input type="text" name="email" id="email" class="form-control " placeholder="" required oninvalid="return false">
+                            <input onblur="validateEmail(this.value,this.id)" type="text" name="emailSignIn" id="emailSignIn" class="form-control " placeholder="" required oninvalid="return false">
                             <span>Ingrese su correo</span>
+                            <p id="emailSignInText" class="d-none">Ingrese un correo valido</p>
                             <i></i>
                         </div>
                         <div class="form-group mt-2 boxInput pt-4">
-                            <input type="text" name="nit" id="nit" class="form-control " placeholder="" required oninvalid="return false">
+                            <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="nitSignIn" id="nitSignIn" class="form-control " placeholder="" required oninvalid="return false">
                             <span>Ingrese su nit</span>
+                            <p id="nitSignInText" class="d-none">Ingrese un nit</p>
                             <i></i>
                         </div>
                         <div class="form-group mt-2 boxInput pt-4">
-                            <input type="password" name="password" id="password" class="form-control" placeholder="" oninvalid="return false" required>
+                            <input onblur="validatePasswordSignin(this.value,this.id)" type="text" name="passwordSignIn" id="passwordSignIn" class="form-control" placeholder="" oninvalid="return false" required>
                             <span>Ingrese su contraseña</span>
+                            <p id="passwordSignInText" class="d-none">Ingrese una contraseña</p>
                             <i></i>
                         </div>
                         <div class="form-group mt-3 pt-4 mb-2 justify-content-center d-flex">
-                            <button type="submit" class="btn btn-signin w-50">Signin</button>
+                            <button id="btnSignIn" onclick="submitSignIn()" type="submit" class="btn btn-signin w-50">Signin</button>
                         </div>
                     </form>
                 </div>

@@ -1,4 +1,5 @@
 
+var problems = new Array;
 //variable global 
 const valueShop= document.getElementById("compra")
 const tableStyle = document.getElementById("tableStyle")
@@ -365,6 +366,8 @@ window.addEventListener("load", function(){
  */
 
 
+/* drag and drop */
+
 
 const dropArea = document.getElementById("drop-area")
 const dragText = document.getElementById('dragText')
@@ -439,7 +442,6 @@ document.addEventListener('drop',(e)=>{
 
 
 function showFiles(files){
-    console.log(files.length)
     if(files.length ==1){
         processFile(files[0])
        
@@ -455,6 +457,7 @@ function showFiles(files){
 
     }
 }
+
 
 function processFile(file){
     const docType = file.type;
@@ -516,3 +519,97 @@ async function uploadFile(file,id){
         }, 3000);
     }   
 } 
+
+
+/* Validaciones */
+
+
+ 
+
+function validateEmail(value,id){
+    const regularEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    if(value == undefined || value == "" || regularEmail.test(value) == false){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+        problems.push('error')
+
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+}
+
+function validateInputsEmpty(value,id){
+    if(value == undefined || value == ""){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+        problems.push('error')
+        return false
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+
+    
+}
+
+function validateTel(value,id){
+    const regularTel=/^[0-9]$/
+    if(value == undefined || value == "" || regularTel.test(value)){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+        problems.push('error')
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+    
+}
+
+
+function validatePasswordSignUp(value,id){
+
+    const regularPass= /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/;
+    const pass2 = document.getElementById('password2SignUp')
+
+    if(value == undefined || value == "" || regularPass.test(value) == false){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+
+    if(pass2.value != "" || pass2.value != undefined){
+        comparePassword(pass2.value, pass2.id)
+    }
+}
+
+function validatePasswordSignin(value,id){
+
+    if(value == undefined || value == ""){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+}
+
+function comparePassword(value,id){
+    if(document.getElementById('passwordSignUp').value !== value){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+}
+
+
+
+function submitSign(){
+    let inputs = document.querySelectorAll("[onblur]")
+    problems =[]
+    
+
+    for(let i = 0; i<inputs.length;i++){
+        inputs[i].onblur();
+        
+    }
+    if(problems.length>0){
+        return false
+    }
+
+ 
+
+}
