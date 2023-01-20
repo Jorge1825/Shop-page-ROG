@@ -366,7 +366,7 @@
                                         <div class="col-10 justify-content-center d-flex">
                                             <button class="d-flex fs-6 fw-semibold" type="button" id="btnUploadImg">Selecciona tu imagen</button>
                                         </div>
-                                        <input type="file" name="foto" id="input-file" accept=".png,.jpg,.jpeg" hidden multiple />
+                                        <input type="file" name="foto" id="input-file" accept=".png,.jpg,.jpeg" oninvalid="return false" hidden multiple />
                                         <div id="msgUpload" class="failure"></div>
                                 
                                     </div>
