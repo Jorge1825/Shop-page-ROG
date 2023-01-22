@@ -337,6 +337,8 @@ function ShopCumputers(){
 
 
 window.onload = function() {
+
+
     
     //execute the function for change the background of the banner 
     setInterval(cambiarBackground, 
@@ -348,6 +350,8 @@ window.onload = function() {
     
     //paint the options of the list search
     paintSearchList();
+
+    
 
 
     
@@ -525,7 +529,7 @@ async function uploadFile(file,id){
 
 
  
-
+//validar que el email cumpla con un @ un dominio y una extension
 function validateEmail(value,id){
     const regularEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
@@ -538,6 +542,8 @@ function validateEmail(value,id){
     }
 }
 
+
+//Validar que los inputs asociados a está funcion no esten vacios
 function validateInputsEmpty(value,id){
     if(value == undefined || value == ""){
         document.getElementById(`${id}Text`).classList.remove('d-none')
@@ -550,6 +556,8 @@ function validateInputsEmpty(value,id){
     
 }
 
+
+//validar numeros de telefono 
 function validateTel(value,id){
     const regularTel=/^[0-9]$/
     if(value == undefined || value == "" || regularTel.test(value)){
@@ -562,6 +570,13 @@ function validateTel(value,id){
 }
 
 
+
+function validateInputsNumber(value,id){
+
+}
+
+
+//validar que la contraseña cumpla con los criterios de : al menos unaletra mayuscula, una minuscula, un numero, un simbolo y que sea minimo de 8 caracteres de longitud
 function validatePasswordSignUp(value,id){
 
     const regularPass= /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/;
@@ -578,15 +593,11 @@ function validatePasswordSignUp(value,id){
     }
 }
 
-function validatePasswordSignin(value,id){
 
-    if(value == undefined || value == ""){
-        document.getElementById(`${id}Text`).classList.remove('d-none')
-    }else{
-        document.getElementById(`${id}Text`).classList.add('d-none')
-    }
-}
 
+
+
+//funcion para comparar las contraseñas en el formulario de SignUp
 function comparePassword(value,id){
     if(document.getElementById('passwordSignUp').value !== value){
         document.getElementById(`${id}Text`).classList.remove('d-none')
@@ -597,19 +608,33 @@ function comparePassword(value,id){
 
 
 
-function submitSign(){
+
+//funcion para validar formulrios y enviarlos en caso de que los campos cumplan con las condiciones esperadas
+function submitSign(form="none"){
+    let formulario = document.getElementById(form)
+    
+    window.scrollTo(0,0)
     let inputs = document.querySelectorAll("[onblur]")
     problems =[]
     
 
     for(let i = 0; i<inputs.length;i++){
         inputs[i].onblur();
-        
     }
     if(problems.length>0){
         return false
     }
 
+    if(formulario !== "none"){
+        formulario.noValidate = true
+    }
+
+    return true
  
 
 }
+
+
+
+
+/* Cambiar de input cuando se presione enter */

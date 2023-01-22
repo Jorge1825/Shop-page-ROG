@@ -40,7 +40,7 @@ UsersCtrl.signUp = async (req, res) => {
             newUser.password = await newUser.encrypPassword(password);
             await newUser.save();
             req.flash('success_msg','Usuario registrado');
-            res.redirect('/users/signin');
+            res.redirect('/users/signup');
         }
 
     }
@@ -58,7 +58,7 @@ UsersCtrl.renderSignInForm = (req, res) => {
 //logiar un usuario
 UsersCtrl.signin = passport.authenticate('local',{
     failureRedirect:'/users/signin',
-    successRedirect:'/notes',
+    successRedirect:'/users/upload',
     failureFlash:true
 })
 

@@ -805,3 +805,9 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
     -webkit-appearance: none;
     margin:0;
 }
+
+.inputNumberUpload::-webkit-inner-spin-button,
+.inputNumberUpload::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin:0;
+}
