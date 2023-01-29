@@ -40,6 +40,8 @@ require('./config/passport') //configurar passport para mantener logueado al usu
 //middlewares, es decir funciones para ejecutar cuando llegan peticiones
     //convertir datos recibidos del servidor a objeetos json
     app.use(morgan('dev')); //para mostrar peticiones en consola
+    
+    app.use(express.json())
     app.use(express.urlencoded({extended:false})); //para poder recibir datos de formularios
     
     const storage = multer.diskStorage({
@@ -68,6 +70,8 @@ require('./config/passport') //configurar passport para mantener logueado al usu
 
     //configurar flash
     app.use(flash());
+
+    //configurar express-validator
 
    
     

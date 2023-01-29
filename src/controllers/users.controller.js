@@ -15,35 +15,29 @@ UsersCtrl.renderSignUpForm = (req, res) => {
 UsersCtrl.signUp = async (req, res) => {
     res.locals.NavFooterActive = false
     const errors = [];
-    const {name, email,password,confirm_password}= req.body
+    const {nameSignUp,
+          phoneSignUp,
+          nitSignUp,
+          emailSignUp,
+          passwordSignUp,
+          password2SignUp,
+          comboSignUp
+          }= req.body
 
-    if(password!=confirm_password){
-        errors.push({text:'Las contraseñas no coinciden'});
-    }
-    if(password.length<4){
-        errors.push({text:'La contraseña debe tener al menos 4 caracteres'});
-    }
-    if(errors.length>0){
-        res.render('users/signup',{errors,name,email,password,confirm_password});
-    }else{
-        
-        const emailUser = await User.findOne({email:email})
 
-        if(emailUser){
-            
-            req.flash('error_msg','El correo ya esta en uso');
-            //enviar los datos del formulario para que no se pierdan
-            res.redirect('/users/signup');
-        }else{
-            const newUser = new User({name,email,password});
+            const newUser = new User({
+                nombre: nameSignUp,
+                nit_empleado: nitSignUp,
+                telefono: phoneSignUp,
+                email:emailSignUp,
+                password: passwordSignUp
+                });
             //cifrar la contraseña
-            newUser.password = await newUser.encrypPassword(password);
+            newUser.password = await newUser.encrypPassword(passwordSignUp);
+
             await newUser.save();
             req.flash('success_msg','Usuario registrado');
             res.redirect('/users/signup');
-        }
-
-    }
 
 }
 

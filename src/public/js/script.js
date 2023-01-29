@@ -561,18 +561,58 @@ function validateInputsEmpty(value,id){
 function validateTel(value,id){
     const regularTel=/^[0-9]$/
     if(value == undefined || value == "" || regularTel.test(value)){
+        
         document.getElementById(`${id}Text`).classList.remove('d-none')
-        problems.push('error')
+        return problems.push('error')
     }else{
         document.getElementById(`${id}Text`).classList.add('d-none')
     }
     
+    if(value<0){
+        document.getElementById(`${id}`).value = ""
+        return problems.push('error')
+    }
 }
 
 
+//validar inputs que reciban precios o valores
+function validateInputsMoney(value,id,bool=true){
+    let newNumber = parseFloat(value.replace(/[^0-9.-]+/g,""))
 
-function validateInputsNumber(value,id){
+    if(bool){
 
+        isNaN(newNumber) ? document.getElementById(`${id}`).value = '' : document.getElementById(`${id}`).value = newNumber;
+
+        
+    }else{
+
+    if(newNumber == undefined || newNumber == "" || isNaN(newNumber)){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+        document.getElementById(`${id}`).value = ''
+        problems.push('error')
+        
+
+    }else{
+        let formatter = new Intl.NumberFormat('en-US',{
+            style:'currency',
+            currency:'USD'
+        })
+
+        document.getElementById(`${id}`).value = formatter.format(newNumber)
+    }
+}
+}
+
+
+//Funcion para validar el input e la contraseña de la ventana signin
+function validatePassSignIn(value,id){
+    if(value == undefined || value == "" || value.length < 8){
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+        problems.push('error')
+        return false
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
 }
 
 

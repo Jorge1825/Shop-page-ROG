@@ -104,7 +104,7 @@
 
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input onblur="validateInputsNumber(this.value,this.id)" type="text" name="precio" id="precio" class="inputNumberUpload form-control" placeholder="" oninvalid="return false" required>
+                                    <input onfocus="validateInputsMoney(this.value,this.id,true)" onblur="validateInputsMoney(this.value,this.id,false)" type="text" name="precio" id="precio" class="inputNumberUpload form-control" placeholder="" oninvalid="return false" required>
                                     <span>Precio</span>
                                     <p id="precioText" class="d-none">Ingrese el precio del equipo</p>
                                     <i></i>
@@ -247,8 +247,9 @@
                                     <span>Tipo</span>
  
                                     <select class="form-select p-1 ps-2 bg-dark text-light" name="tipeGra" id="tipeGra">
-                                        <option value="0" selected>DEDICADA</option>
+                                        <option value="0" selected>SIN TARGETA</option>
                                         <option value="1">INTEGRADA</option>
+                                        <option value="1">DEDICADA</option>
                                     </select>
                                 </div>
                             </div>
@@ -256,7 +257,7 @@
                             
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="nameGra" id="nameGra" class="form-control " placeholder="" required oninvalid="return false">
+                                    <input  type="text" name="nameGra" id="nameGra" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Nombre</span>
                                     <p id="nameGraText" class="d-none">Ingrese el nombre de la grafica</p>
                                     <i></i>
@@ -267,7 +268,7 @@
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
                                     <div class="row">
                                         <div class="col-9 ">
-                                            <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="sizeGra" id="sizeGra" class="inputNumberUpload form-control" placeholder="" required oninvalid="return false">
+                                            <input  type="text" name="sizeGra" id="sizeGra" class="inputNumberUpload form-control" placeholder="" required oninvalid="return false">
                                             <span>Capacidad de vram</span>
                                             <p id="sizeGraText" class="d-none">Ingrese la capacidad de la vram</p>
                                             <i></i>
@@ -285,7 +286,7 @@
 
                             <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group mt-2 boxInput boxInputSignUp pt-3">
-                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="velocidadGra" id="velocidadGra" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
+                                    <input  type="text" name="velocidadGra" id="velocidadGra" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Velocidad</span>
                                     <p id="velocidadGraText" class="d-none">Ingrese la velocidad de la targeta</p>
                                     <i></i>
