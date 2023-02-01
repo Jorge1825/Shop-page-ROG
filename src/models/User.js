@@ -16,7 +16,8 @@ const UserSquema = new Schema({
     },
     telefono:{
         type:String,
-        requerid:true
+        requerid:true,
+        unique: true
     },
     email:{
         type: String,

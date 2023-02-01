@@ -811,3 +811,55 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
     -webkit-appearance: none;
     margin:0;
 }
+
+
+
+
+/* configuracion del focus, fondo del select y sus opciones */
+.selectStyle:focus{
+    
+    box-shadow: none;
+    border-color: var(--redColor);
+}
+
+/* hacer que el color del option aunue este select, focus o en hover sea blanco */
+.selectStyle option:focus{
+    color: red;
+}
+
+
+
+
+
+/* Toast */
+.show{
+    position: relative;
+    animation: show_toast 1s ease forwards;
+    -webkit-animation: show_toast 1s ease forwards;
+}
+
+@keyframes show_toast {
+    0% {
+      transform: translateX(2%);
+      -webkit-transform: translateX(2%);
+      -moz-transform: translateX(2%);
+      -ms-transform: translateX(2%);
+      -o-transform: translateX(2%);
+      opacity: 0;
+}
+    40% {
+      transform: translateX(-5%);
+      -webkit-transform: translateX(-5%);
+      -moz-transform: translateX(-5%);
+      -ms-transform: translateX(-5%);
+      -o-transform: translateX(-5%);
+        opacity: 0.8;
+}
+    80% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-10px);
+    }
+  }

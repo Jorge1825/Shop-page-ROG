@@ -1,6 +1,7 @@
 const UsersCtrl = {};
 const User = require('../models/User');
 const passport = require('passport');
+const {validationResult} = require('express-validator');
 
 
 
@@ -14,7 +15,8 @@ UsersCtrl.renderSignUpForm = (req, res) => {
 //registrar un nuevo usuario
 UsersCtrl.signUp = async (req, res) => {
     res.locals.NavFooterActive = false
-    const errors = [];
+    const errors = validationResult(req);
+
     const {nameSignUp,
           phoneSignUp,
           nitSignUp,
@@ -24,6 +26,21 @@ UsersCtrl.signUp = async (req, res) => {
           comboSignUp
           }= req.body
 
+
+
+    if(!errors.isEmpty()){
+        res.render('users/signup',{
+            errors: errors.array(),
+            nameSignUp,
+            phoneSignUp,
+            nitSignUp,
+            emailSignUp,
+            passwordSignUp,
+            password2SignUp,
+            comboSignUp
+        });
+
+    }else{
 
             const newUser = new User({
                 nombre: nameSignUp,
@@ -38,6 +55,7 @@ UsersCtrl.signUp = async (req, res) => {
             await newUser.save();
             req.flash('success_msg','Usuario registrado');
             res.redirect('/users/signup');
+    }
 
 }
 

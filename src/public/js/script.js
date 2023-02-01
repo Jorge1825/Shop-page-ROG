@@ -176,14 +176,11 @@ function cambiarBackground(){
 //function for validate the exist of a product in the list of shopping and add the quantity of product
 function buyPc(idPc,index){
 
-        //configure values of the notification
-        notify.classList.add("show");
-        titleNotify.innerText = "PRODUCTO AGREGADO"
-        bodyNotify.innerText = "¡ Producto agregado a tu carrito !"
-        setTimeout(() => {
-        notify.classList.remove("show")
-            }
-            , 4000);
+
+
+    //*Mostrar notificacion
+    notifyShow("PRODUCTO AGREGADO","¡ Se ha agregado un producto a tu carrito !","light")
+        
 
    //validate if the pc is already in the list
     if(ListComputersBuy.find(pcBuy => pcBuy.id === idPc)){
@@ -198,14 +195,8 @@ function buyPc(idPc,index){
                 if(pcBuy.stock == 0){
                     
                     //show notification
-                    //configure values of the notification
-                    notify.classList.add("show","bg-dark","text-light");
-                    titleNotify.innerText = "SIN STOCK";
-                    bodyNotify.innerText = "¡ Has alcanzado el limite de equipos disponibles !";
-                    setTimeout(() => {
-                    notify.classList.remove("show","bg-dark","text-light")
-                        }
-                        , 4000);
+                    //*Mostrar notificacion
+                    notifyShow("SIN STOCK","¡ Has alcanzado el limite de equipos disponibles !","dark")
 
 
                     //change the button of buy
@@ -240,7 +231,36 @@ function buyPc(idPc,index){
 
     paintBuy();
      
+
+}
+
+
+
+//crear notificacion y ocultarla
+function notifyShow(title,body,theme){
+    //create notification
+    notify.innerHTML += `
+    <div class="toast my-2 show serverError" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+            <img src="/img/logoNotify.png" class="rounded me-2 img-fluid" alt="..." width="30px" height="30px" >
+            <strong id="titleNotify" class="me-auto">${title}</strong>
+            <small>Ahora</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          ${theme == "light" ? `<div id="bodyNotify" class="toast-body text-dark bg-light">` : `<div id="bodyNotify" class="toast-body text-light bg-dark">`}
+          ${body}
+          </div>
+        </div>
+    `;
     
+
+    setTimeout(() => {
+        //limpiar el primer elemento que se encuentre con la clase show dentro de notify
+        notify.removeChild(notify.querySelector(".show"));
+    }, 4000);
+
+
+
 
 }
 
@@ -335,9 +355,9 @@ function ShopCumputers(){
 
 //Listener event onload of the page
 
-
 window.onload = function() {
 
+    msgFlash()
 
     
     //execute the function for change the background of the banner 
@@ -350,9 +370,6 @@ window.onload = function() {
     
     //paint the options of the list search
     paintSearchList();
-
-    
-
 
     
 
@@ -677,4 +694,29 @@ function submitSign(form="none"){
 
 
 
-/* Cambiar de input cuando se presione enter */
+//setting the messages for the server
+function msgFlash() {
+    let serverErrors = document.querySelectorAll(".serverError");
+  
+    for (let i = 0; i < serverErrors.length; i++) {
+      let progressBar = serverErrors[i].querySelector(".progress-bar");
+      let duration = 3000 + (i * 1000);
+  
+      serverErrors[i].classList.add("show");
+  
+      let interval = setInterval(() => {
+        let elapsedTime = Date.now() - startTime; //calcula el tiempo transcurrido
+        let remainingTime = duration - elapsedTime; //calcula el tiempo restante
+        let percentage = (elapsedTime / duration) * 100;    //calcula el porcentaje de tiempo transcurrido
+  
+        progressBar.style.width = `${100 - percentage}%`; //actualiza el ancho de la barra de progreso
+  
+        if (remainingTime <= 0) {
+          clearInterval(interval);
+          serverErrors[i].classList.remove("show");
+        }
+      }, 15);
+  
+      let startTime = Date.now();
+    }
+  }
