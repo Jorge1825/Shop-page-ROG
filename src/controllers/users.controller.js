@@ -43,10 +43,10 @@ UsersCtrl.signUp = async (req, res) => {
     }else{
 
             const newUser = new User({
-                nombre: nameSignUp,
-                nit_empleado: nitSignUp,
+                nombre: (nameSignUp).toUpperCase(),   
+                nit_empleado: (nitSignUp).toUpperCase(),
                 telefono: phoneSignUp,
-                email:emailSignUp,
+                email:(emailSignUp).toLowerCase(),
                 password: passwordSignUp
                 });
             //cifrar la contraseña
@@ -118,6 +118,14 @@ UsersCtrl.sendUpload=async (req, res)=>{
     res.redirect('/upload')
 }
  
+
+
+
+
+UsersCtrl.renderHome=(req, res)=>{
+    res.locals.NavFooterActive = false
+    res.render('users/home')
+}
 
 
 

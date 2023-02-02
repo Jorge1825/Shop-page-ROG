@@ -16,14 +16,14 @@ passport.use( new LocalStrategy({
 
     
     //confirmar si el email existe
-    const user = await User.findOne({email:email})
+    const user = await User.findOne({email:(email).toLowerCase()})
     
     if(!user){
         return done(null,false,{message:'Credenciales no validas'});
     }else{
         //confirmar si la contraseña es correcta
         const match = await user.matchPassword(password);
-        if(match && user.nit_empleado == req.body.nit){
+        if(match && (user.nit_empleado).toUpperCase() == (req.body.nit).toUpperCase()){
             return done(null,user);
         }else{
             return done(null,false,{message:'Credenciales no validas'});

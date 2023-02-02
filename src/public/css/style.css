@@ -863,3 +863,90 @@ background: linear-gradient(0deg, rgba(200, 32, 29, 0.349) 0%, rgba(59, 7, 7, 0.
       transform: translateX(-10px);
     }
   }
+
+
+
+/* Ruta home */
+.img-home{
+    background-image: url('../img/super6.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-color: var(--blackColor);
+}
+
+.homePanel{
+    box-shadow: 0 0 10px 0px rgb(0, 0, 0);
+
+}
+
+.titleHome{
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--redColor);
+    text-shadow: 5px 1px rgb(0, 0, 0);
+    animation: colorTextHome 1s infinite alternate;
+    -webkit-animation: colorTextHome 1s infinite alternate;
+}
+
+@keyframes colorTextHome {
+    0%{
+        color: var(--redColor);
+    }
+    100%{
+        color: rgba(175, 2, 2, 0.651);
+    }
+}
+
+.homePanel .card{
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.144);
+
+}
+
+
+
+.targetHome{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0,0.5);
+    overflow: hidden;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.288);
+}
+.targetHome::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 160%;
+    background: linear-gradient(rgb(102,146,209),var(--redColor));
+    animation: girarHome 8s linear infinite alternate;
+    -webkit-animation: girarHome 8s linear infinite alternate;
+}
+.targetHome::after{
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+@keyframes girarHome{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+}

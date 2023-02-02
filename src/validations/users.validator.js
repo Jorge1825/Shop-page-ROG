@@ -4,12 +4,13 @@ const User = require('../models/User');
 const {body} = require('express-validator');
 
 
-usersValidator.validateSignUp = ()=>
-    [
+usersValidator.validateSignUp = ()=>{
+    return[
         body('nameSignUp', 'El nombre es requerido')
         .notEmpty(),
-        body('phoneSignUp', 'El telefono debe tener 5 caracteres')
+        body('phoneSignUp', 'El telefono debe tener 5 caracteres y debe ser positivo')
         .isLength({min: 5})
+        .isInt({min: 0})
         .custom(async (value, {req}) => {
             const user = await User.findOne({telefono:req.body.phoneSignUp})
             if(user){
@@ -40,7 +41,21 @@ usersValidator.validateSignUp = ()=>
         .custom(value => value == '0' || value == '1')
 
     ]
+}
    
+
+
+usersValidator.validateUpload = ()=>{
+    
+    
+
+
+}
+
+
+
+
+
 
 
 module.exports = usersValidator;

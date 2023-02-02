@@ -591,10 +591,34 @@ function validateTel(value,id){
     }
 }
 
+//validar numeros 
+function validateNumber(value,id){
+
+    if(value<0){
+        document.getElementById(`${id}`).value = ""
+        return problems.push('error')
+    }
+
+    if(value == undefined || value == "" || !/^[+]?\d+(\.\d+)?$/.test(value)){
+        
+        document.getElementById(`${id}Text`).classList.remove('d-none')
+        return problems.push('error')
+    }else{
+        document.getElementById(`${id}Text`).classList.add('d-none')
+    }
+    
+    
+}
+
+
+
+
 
 //validar inputs que reciban precios o valores
 function validateInputsMoney(value,id,bool=true){
-    let newNumber = parseFloat(value.replace(/[^0-9.-]+/g,""))
+    //eliminar los puntos y comas de value
+
+    let newNumber = parseFloat(value.replace(/[^0-9.]+/g,""))
 
     if(bool){
 

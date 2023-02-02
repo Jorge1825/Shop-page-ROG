@@ -9,10 +9,12 @@ const {
   logout,
   renderUpload,
   sendUpload,
+  renderHome,
 } = require("../controllers/users.controller");
 
 const { 
-    validateSignUp 
+    validateSignUp,
+    validateUpload
 } = require("../validations/users.validator");
 
 //render the signup form
@@ -28,7 +30,11 @@ router.get("/users/logout", logout);
 
 //Upload de nuevos productos
 router.get("/users/upload", renderUpload);
-
 router.post("/users/upload", sendUpload);
+
+//renderizar la ventana principal
+router.get("/users/main", renderHome);
+
+
 
 module.exports = router;
