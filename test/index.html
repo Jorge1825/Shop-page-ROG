@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<style>
+
+
+.body{
+    /* colocar un fondo blanco a la pagina pero luego colocar una imagen al final de dicha pagina */
+    background: #1b1b1b;
+    background-image: url(./img/republic-of-gamers-asus-rog-cityscape-neon-3840x2160-129.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* crear un after para simular una ola un poco  mas grande que la anterior */
+.body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./img/wave.png) repeat-x;
+    background-size: 1000px 100px;
+    background-position-y: 100%;
+    z-index: 1;
+    opacity: 1;
+    animation: animarola 4s linear infinite;
+    -webkit-animation: animarola 4s linear infinite;
+
+
+}
+
+
+@keyframes animarola{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+
+
+</style>
+
+
+
+
+<body>
+    <div class="body">
+        <div class="row mx-0 my-0 vh-100 justify-content-center text-light">
+
+            <div class="col-12 mx-auto  text-center">
+                <h1 class="title-404">404</h1>
+                <div class="row justify-content-center">
+                    <div class="col-9">
+                        <h2 class="text-404">The page you were looking for was moved or doesn´t exist</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-8">
+                        <img class="img-fluid imgLogo-404" src="../img/logoNotify.png" alt="logo.png" >
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <a href="/" class="btn btn-404 px-5 mt-5">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    
+</body>
+</html>

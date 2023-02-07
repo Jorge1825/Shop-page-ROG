@@ -1,99 +1,316 @@
-
-    <div class="img-background-signup row mx-0 my-0 min-vh-100 justify-content-center align-items-center">
-        <div class="col-12 px-0 col-lg-8 col-xl-7 col-sm-10 col-md-8 mx-auto">
-            <div class="card target">
-                    <div class="col-12 text-light fw-bold pt-3 z-1 text-center fs-3">
-                            REGISTRAR USUARIO
-                    </div>
-                <div class="card-body z-1 mx-3 px-4 mx-sm-4 mx-md-5 mt-3 ">
-                    <form action="/users/signup" method="POST" id="form-signUp" onsubmit="return submitSign()">
-    
-                
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onblur="validateInputsEmpty(this.value, this.id)" type="text" name="nameSignUp" id="nameSignUp" class="form-control " placeholder="" required oninvalid="return false">
-                                    <span>Ingrese un nombre</span>
-                                    <p id="nameSignUpText" class="d-none">Ingrese un nombre</p>
-                                    <i></i>
-                                </div>
-                            </div>
-    
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onkeyup="validateTel(this.value, this.id)" onblur="validateTel(this.value, this.id)" type="number" inputmode="numeric" name="phoneSignUp" id="phoneSignUp" class="form-control " placeholder="" required oninvalid="return false">
-                                    <span>Ingrese un telefono</span>
-                                    <p id="phoneSignUpText" class="d-none">Ingrese un numero de telefono valido</p>
-                                    <i></i>
-                                </div>
-                            </div>
-    
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onblur="validateInputsEmpty(this.value, this.id)"  type="text" name="nitSignUp" id="nitSignUp" class="form-control " placeholder="" required oninvalid="return false">
-                                    <span>Ingrese un nit</span>
-                                    <p id="nitSignUpText" class="d-none">Ingrese un nit valido</p>
-                                    <i></i>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                <input onblur="validateEmail(this.value, this.id)"  type="text" name="emailSignUp" id="emailSignUp" class="form-control " placeholder="" required oninvalid="return false">
-                                <span>Ingrese un correo</span>
-                                <p id="emailSignUpText" class="d-none">Ingrese un correo valido</p>
-                                <i></i>
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onblur="validatePasswordSignUp(this.value,this.id)" type="password" name="passwordSignUp" id="passwordSignUp" class="form-control" placeholder="" oninvalid="return false" required>
-                                    <span>Ingrese una contraseña</span>
-                                    <p id="passwordSignUpText" class="d-none">Ingrese una contraseña que tenga un numero, una mayuscula, una minuscula, un caracterer especial y minimo tenga una longitud de 8 caracteres </p>
-                                    <i></i>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onkeyup="comparePassword(this.value,this.id)"  type="password" name="password2SignUp" id="password2SignUp" class="form-control" placeholder="" oninvalid="return false" required>
-                                    <span>Repita la contraseña</span>
-                                    <p id="password2SignUpText" class="d-none">Las contraseñas no coinciden</p>
-                                    <i></i>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <span>Estado de la cuenta</span>
- 
-                                    <select class="form-select p-1 ps-2 bg-dark text-light selectStyle" name="comboSignUp" id="state">
-                                        <option value="0" class="tex" selected>Activa</option>
-                                        <option value="1">Inactiva</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-6"><div class="mt-3 pt-4 justify-content-center d-flex">
-                            <a href="/users/main" type="button" class="btn btn-signin w-100">Cancelar / Volver</a>
-                        </div>
-                        </div>
-                            <div class="col-6">
-                                <div class="form-group mt-3 pt-4 justify-content-center d-flex">
-                            <button type="submit" onclick="document.getElementById('form-signUp').onsubmit()" class="btn btn-signin w-100">Registrar</button>
-                        </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<div class="img-background-signup row bg-dark mx-0 my-0 min-vh-100 justify-content-center align-items-center">
+    <div class="col-11 userPanel z-2 bg-dark py-4 rounded-3">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="text-center text-light fs-1 fw-bold">USUARIOS DEL SISTEMA</h1>
             </div>
+
+            <div class="row mt-4">
+
+                <div class="col-2">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-signup" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        <i class="fa-solid fa-plus fs-2"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade ms-2" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog ps-1 modal-dialog-centered modal-dialog-scrollable modal-xl">
+                            <div class="modal-content bg-transparent">
+                                <div class="modal-body">
+
+                                    <div class="row justify-content-center d-flex">
+                                        <div class="card target col-12 col-xl-8">
+                                            <div class="col-12 text-light fw-bold pt-3 z-1 text-center fs-3">
+                                                REGISTRAR USUARIO
+                                            </div>
+                                            <div class="card-body z-1 mx-1 px-4 mx-sm-1 mx-md-2  mt-3 ">
+                                                <form action="/users/signup" method="POST" id="form-signUp"
+                                                    onsubmit="return submitSign()">
+
+
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-12 col-sm-6 ">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <input onblur="validateInputsEmpty(this.value, this.id)"
+                                                                    type="text" name="nameSignUp" id="nameSignUp"
+                                                                    class="form-control " placeholder="" required
+                                                                    oninvalid="return false">
+                                                                <span>Ingrese un nombre</span>
+                                                                <p id="nameSignUpText" class="d-none">Ingrese un nombre
+                                                                </p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-sm-6">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <input onkeyup="validateTel(this.value, this.id)"
+                                                                    onblur="validateTel(this.value, this.id)"
+                                                                    type="number" inputmode="numeric" name="phoneSignUp"
+                                                                    id="phoneSignUp" class="form-control "
+                                                                    placeholder="" required oninvalid="return false">
+                                                                <span>Ingrese un telefono</span>
+                                                                <p id="phoneSignUpText" class="d-none">Ingrese un numero
+                                                                    de telefono valido</p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-sm-6">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <input onblur="validateInputsEmpty(this.value, this.id)"
+                                                                    type="text" name="nitSignUp" id="nitSignUp"
+                                                                    class="form-control " placeholder="" required
+                                                                    oninvalid="return false">
+                                                                <span>Ingrese un nit</span>
+                                                                <p id="nitSignUpText" class="d-none">Ingrese un nit
+                                                                    valido</p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-sm-6">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <input onblur="validateEmail(this.value, this.id)"
+                                                                    type="text" name="emailSignUp" id="emailSignUp"
+                                                                    class="form-control " placeholder="" required
+                                                                    oninvalid="return false">
+                                                                <span>Ingrese un correo</span>
+                                                                <p id="emailSignUpText" class="d-none">Ingrese un correo
+                                                                    valido</p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-12 col-sm-6">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <input
+                                                                    onblur="validatePasswordSignUp(this.value,this.id)"
+                                                                    type="password" name="passwordSignUp"
+                                                                    id="passwordSignUp" class="form-control"
+                                                                    placeholder="" oninvalid="return false" required>
+                                                                <span>Ingrese una contraseña</span>
+                                                                <p id="passwordSignUpText" class="d-none">Ingrese una
+                                                                    contraseña que tenga un numero, una mayuscula, una
+                                                                    minuscula, un caracterer especial y minimo tenga una
+                                                                    longitud de 8 caracteres </p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-sm-6">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <input onkeyup="comparePassword(this.value,this.id)"
+                                                                    type="password" name="password2SignUp"
+                                                                    id="password2SignUp" class="form-control"
+                                                                    placeholder="" oninvalid="return false" required>
+                                                                <span>Repita la contraseña</span>
+                                                                <p id="password2SignUpText" class="d-none">Las
+                                                                    contraseñas no coinciden</p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-sm-6">
+                                                            <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                                                <span>Estado de la cuenta</span>
+
+                                                                <select
+                                                                    class="form-select p-1 ps-2 bg-dark text-light selectStyle"
+                                                                    name="comboSignUp" id="state">
+                                                                    <option value="0" class="tex" selected>Activa
+                                                                    </option>
+                                                                    <option value="1">Inactiva</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="mt-3 pt-4 justify-content-center d-flex">
+                                                                <button type="button" class="btn btn-close-modal w-75"
+                                                                    data-bs-dismiss="modal">Cancelar</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="form-group mt-3 pt-4 justify-content-center d-flex">
+                                                                <button type="submit"
+                                                                    onclick="document.getElementById('form-signUp').onsubmit()"
+                                                                    class="btn btn-signup w-75">Registrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+
+                </div>
+                <div class="col-3 text-light fs-5">Stock: <span id="Stock">?</span></div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-10">
+
+
+                </div>
+
+            </div>
+
+
+
+
+
         </div>
+
     </div>
+</div>
 
 
 
+<style>
+    .img-background-signup {
+        /* colocar un fondo blanco a la pagina pero luego colocar una imagen al final de dicha pagina */
+        background: #1b1b1b;
+        background-image: url(../img/super8.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        min-height: 100vh;
+    }
 
+    /* crear un after para simular una ola un poco  mas grande que la anterior */
+    .img-background-signup::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(../img/wave.png) repeat-x;
+        background-size: 1000px 100px;
+        background-position-y: 100%;
+        z-index: 1;
+        opacity: 1;
+        animation: animarola 4s linear infinite;
+        -webkit-animation: animarola 4s linear infinite;
+
+
+    }
+
+    .userPanel {
+
+        box-shadow: 0px 0px 10px rgb(253, 253, 253);
+    }
+
+    .boxInputSignUp i::before {
+        animation: none;
+    }
+
+    #phoneSignUp::-webkit-inner-spin-button,
+    #phoneSignUp::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .inputNumberUpload::-webkit-inner-spin-button,
+    .inputNumberUpload::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
+    .btn-signup {
+        background-color: var(--redColor);
+        color: white;
+
+    }
+
+    .btn-signup:hover {
+        background-color: var(--redColor);
+        color: rgb(221, 221, 221);
+        box-shadow: inset 0px 0px 5px rgb(248, 248, 248)
+    }
+
+    .btn-signup:focus {
+        background-color: rgb(8, 8, 8);
+        color: rgb(221, 221, 221);
+        box-shadow: inset 0px 0px 5px rgb(248, 248, 248)
+    }
+
+    .btn-close-modal {
+        background-color: var(--plataColor);
+        color: rgb(8, 8, 8);
+    }
+
+    .btn-close-modal:hover {
+        background-color: var(--plataColor);
+        color: rgb(8, 8, 8);
+        box-shadow: inset 0px 0px 5px rgb(0, 0, 0)
+    }
+
+    .btn-close-modal:focus {
+        background-color: var(--plataColor);
+        color: rgb(255, 255, 255);
+        box-shadow: inset 0px 0px 5px rgb(248, 248, 248)
+    }
+
+    .btn-close-modal:active {
+        background-color: rgb(0, 0, 0) !important;
+        color: rgb(255, 255, 255) !important;
+        box-shadow: inset 0px 0px 5px rgb(248, 248, 248)
+    }
+
+
+    .modal.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+    }
+
+
+    @keyframes animarola {
+        0% {
+            background-position-x: 0px;
+        }
+
+        100% {
+            background-position-x: 1000px;
+        }
+    }
+
+
+    /* configuracion del focus, fondo del select y sus opciones */
+    .selectStyle:focus {
+
+        box-shadow: none;
+        border-color: var(--redColor);
+    }
+
+    /* hacer que el color del option aunue este select, focus o en hover sea blanco */
+    .selectStyle option:focus {
+        color: red;
+    }
+</style>

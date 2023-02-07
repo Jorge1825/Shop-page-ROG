@@ -44,6 +44,7 @@ require('./config/passport') //configurar passport para mantener logueado al usu
     app.use(express.json())
     app.use(express.urlencoded({extended:false})); //para poder recibir datos de formularios
     
+    
     const storage = multer.diskStorage({
         destination: path.join(__dirname, 'public/img/uploads'),
         filename: (req, file, cb, filename) => {

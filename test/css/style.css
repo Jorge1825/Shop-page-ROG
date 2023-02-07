@@ -1,0 +1,68 @@
+/* Importar Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* 
+body{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background:#333;
+    min-height: 100vh;
+}
+
+footer{
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+footer .ola{
+    position: absolute;
+    top:-98px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+
+    background: url(../img/wave.png) repeat-x;
+    background-size: 1000px 100px; 
+}
+footer .ola.ola1{
+    z-index: 2;
+    opacity: 1;
+    bottom: 0;
+    animation: animarola 4s linear infinite;
+    -webkit-animation: animarola 4s linear infinite;
+}
+footer .ola.ola2{
+    z-index: 1;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animarola_2 4s linear infinite;
+    -webkit-animation: animarola_2 4s linear infinite;
+}
+
+@keyframes animarola{
+    0%{
+        background-position-x: 1000px;
+    }
+    100%{
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animarola_2{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+} */
+
+

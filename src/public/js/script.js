@@ -73,8 +73,6 @@ let computers =[
 
 let ListComputersBuy = [];
 
-//variable global for control the number of background of banner animated
-let numImage = 0;
 
 
 
@@ -155,21 +153,6 @@ function paintBuy(){
 
 
 
-
-//funcion para cambiar el background de un elemento haciendo una animacion 
-function cambiarBackground(){
-    let box = document.getElementById("CambioImagen");
-    box.style.opacity = 0;
-    box.classList.remove(`img_super${numImage}`);
-    if(numImage >3){
-        
-        numImage = -1;
-    }
-    box.classList.add(`img_super${numImage+1}`);
-    box.style.opacity = 1;
-    numImage++;
-
-}
 
 
 
@@ -361,9 +344,7 @@ window.onload = function() {
 
     
     //execute the function for change the background of the banner 
-    setInterval(cambiarBackground, 
-        
-        5000);
+    
 
     //paint the targets of computers 
     paintCardPc();
@@ -387,159 +368,6 @@ window.addEventListener("load", function(){
  */
 
 
-/* drag and drop */
-
-
-const dropArea = document.getElementById("drop-area")
-const dragText = document.getElementById('dragText')
-const button = document.getElementById('btnUploadImg')
-const input = document.getElementById('input-file')
-const img = document.getElementById('imgPc')
-const msgUpload = document.getElementById('msgUpload')
-let fileUrl;
-let files;
-
-
-button.addEventListener('click',(e) =>{
-    input.click();
-})
-img.addEventListener('click',(e) =>{
-    input.click();
-})
-
-
-input.addEventListener('change',(e)=>{
-    files= input.files
-    dropArea.classList.add('active')
-    showFiles(files)
-    dropArea.classList.remove('active')
-
-})
-
-dropArea.addEventListener('dragover',(e)=>{
-    e.preventDefault()
-    dropArea.classList.add('active')
-    dropArea.classList.remove('uploaded')
-    dragText.textContent = 'Suelta para subir la imagen'
-})
-
-dropArea.addEventListener('dragleave',(e)=>{
-    e.preventDefault()
-    dropArea.classList.remove('active')
-    dropArea.classList.add('uploaded')
-    dragText.textContent = 'Arrastra y suelta la imagen'
-})
-
-dropArea.addEventListener('drop',(e)=>{
-    e.preventDefault()
-    files = e.dataTransfer.files;
-    showFiles(files)
-    dropArea.classList.remove('active')
- 
-    dragText.textContent = 'Arrastra y suelta la imagen'
-})
-
-
-
-document.addEventListener('dragover' ,(e)=>{
-    e.preventDefault()
-    dropArea.classList.remove('uploaded')
-})
-
-document.addEventListener('dragleave',(e)=>{
-    e.preventDefault()
-    dropArea.classList.remove('uploaded')
-})
-
-document.addEventListener('drop',(e)=>{
-    e.preventDefault()
-    if(fileUrl){
-        dropArea.classList.add('uploaded')
-    }
-    
-
-})
-
-
-
-function showFiles(files){
-    if(files.length ==1){
-        processFile(files[0])
-       
-    }else{
-
-        fileUrl = undefined
-        dropArea.classList.remove('uploaded')
-        msgUpload.innerText='No es posible cargar más de una imagen'
-    
-        setTimeout(() => {
-            msgUpload.innerText=""
-        }, 3000);
-
-    }
-}
-
-
-function processFile(file){
-    const docType = file.type;
-    const validExtensions = ['image/jpeg','image/png', 'image/jpg']
-
-    if(validExtensions.includes(docType)){
-        //archivo valido
-        const fileReader = new FileReader();
-        const id = `file-${Math.random().toString(32).substring(7)}`
-
-        fileReader.addEventListener('load',e=>{
-            fileUrl = fileReader.result
-            
-            img.innerHTML= '<h5 style="color: green;">Loading...</h5>'
-        })
-
-        fileReader.readAsDataURL(file)
-        uploadFile(file,id)
-
-    }else{
-        fileUrl = undefined
-        dropArea.classList.remove('uploaded')
-        msgUpload.innerText='Este tipo de archivo no es soportado asegurese que sea .png, .jpg o .jpeg'
-    
-        setTimeout(() => {
-            msgUpload.innerText=""
-        }, 3000);
-    }
-
-}
-
-
-
-async function uploadFile(file,id){
-    const formData= new FormData()
-    
-    formData.append("file", file)
-
-    try {
-        const response = await fetch('http://localhost:4000/upload',{
-            method: "POST",
-            body: formData
-        })
-
-        const responseText = await response.text();
-
-        dropArea.classList.add('uploaded')
-        console.log(fileUrl)
-        img.innerHTML=`<img src="${fileUrl}" width="200px">`
-    
-    } catch (error) {
-        fileUrl = undefined
-        dropArea.classList.remove('uploaded')
-        img.innerHTML=''
-        msgUpload.innerText='No fue posible subir la imagen, intentelo nuevamente'
-    
-        setTimeout(() => {
-            msgUpload.innerText=""
-        }, 3000);
-    }   
-} 
 
 
 /* Validaciones */
@@ -609,8 +437,6 @@ function validateNumber(value,id){
     
     
 }
-
-
 
 
 
@@ -694,7 +520,7 @@ function comparePassword(value,id){
 function submitSign(form="none"){
     let formulario = document.getElementById(form)
     
-    window.scrollTo(0,0)
+    window.scrollTo(0,0) //scroll to the top of the page
     let inputs = document.querySelectorAll("[onblur]")
     problems =[]
     
@@ -744,3 +570,8 @@ function msgFlash() {
       let startTime = Date.now();
     }
   }
+
+
+function test(){
+    console.log("test")
+}

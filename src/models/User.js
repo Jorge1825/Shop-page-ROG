@@ -12,17 +12,21 @@ const UserSquema = new Schema({
     },
     nit_empleado:{
         type:String,
-        requerid:true
+        requerid:true,
+        unique: true,
+        trim: true
     },
     telefono:{
         type:String,
         requerid:true,
-        unique: true
+        unique: true,
+        trim: true
     },
     email:{
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true
     },
     password:{
         type: String,

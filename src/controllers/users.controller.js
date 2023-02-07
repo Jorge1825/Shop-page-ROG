@@ -41,12 +41,12 @@ UsersCtrl.signUp = async (req, res) => {
         });
 
     }else{
-
+        try{
             const newUser = new User({
                 nombre: (nameSignUp).toUpperCase(),   
-                nit_empleado: (nitSignUp).toUpperCase(),
-                telefono: phoneSignUp,
-                email:(emailSignUp).toLowerCase(),
+                nit_empleado: (nitSignUp).toUpperCase().replace(/\s/g, ""),
+                telefono:(phoneSignUp).toString().replace(/\s/g, ""),
+                email:(emailSignUp).toLowerCase().replace(/\s/g, ""),
                 password: passwordSignUp
                 });
             //cifrar la contraseña
@@ -55,6 +55,12 @@ UsersCtrl.signUp = async (req, res) => {
             await newUser.save();
             req.flash('success_msg','Usuario registrado');
             res.redirect('/users/signup');
+            
+        }catch(err){
+            req.flash('error_msg','Ha ocurrido un error al registrar el usuario');
+            res.redirect('/users/signup');
+        }
+            
     }
 
 }
@@ -94,8 +100,9 @@ UsersCtrl.renderUpload=(req, res)=>{
 }
 
 UsersCtrl.sendUpload=async (req, res)=>{
-    console.log(req.file)
+    
 
+    try{
     const product = new Product({
         name: req.body.name,
         marca: req.body.marca,
@@ -113,12 +120,14 @@ UsersCtrl.sendUpload=async (req, res)=>{
 
     
     await product.save()
-    
-
     res.redirect('/upload')
+
+    }catch(err){
+        req.flash('error_msg','Ha ocurrido un error al registrar el producto');
+        res.redirect('/upload');
+    }
 }
  
-
 
 
 

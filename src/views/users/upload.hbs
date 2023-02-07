@@ -432,3 +432,283 @@
             </div>
         </div>
     </div>
+
+
+<style>
+
+    /* upload */
+.img-background-upload{
+    background-image: url('../img/super5.jpg');
+    background-position: center center;
+    background-size: auto;
+    height: 100%;
+}
+.span-upload{
+    text-shadow: 0.3px 0.5px  rgb(238, 238, 238);
+}
+
+
+    /* drag and drop */
+.drop-area{
+    border: 5px dashed #ddd;
+    
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.drop-area.uploaded{
+    border:none;
+}
+
+.drop-area.uploaded >.elements{
+    display:none;
+}
+
+
+.drop-area.active{
+    background-color: #b8d4fe;
+    color: black;
+    border: 2px dashed #618ac9;
+
+}
+
+.drop-area h2{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--blackColor);
+
+}
+
+.drop-area span{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--blackColor);
+}
+
+.drop-area button{
+    padding: 10px 25px;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    background-color: #5256ad;
+    color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.drop-area.uploaded img{
+    display: block;
+    width: 100%;
+
+}
+.drop-area img{
+    display: none;
+}
+
+.file-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: solid 1px #ddd;
+
+}
+
+.failure{
+    color: var(--redColor);
+    text-align: center;
+}
+
+#btnUploadImg{
+    background-color: var(--redColor);
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+{{!-- Codigo js --}}
+
+<script type="text/javascript">
+
+    /* drag and drop */
+
+
+    const dropArea = document.getElementById("drop-area")
+    const dragText = document.getElementById('dragText')
+    const button = document.getElementById('btnUploadImg')
+    const input = document.getElementById('input-file')
+    const img = document.getElementById('imgPc')
+    const msgUpload = document.getElementById('msgUpload')
+    let fileUrl;
+    let files;
+
+
+    button.addEventListener('click', (e) => {
+        input.click();
+    })
+    img.addEventListener('click', (e) => {
+        input.click();
+    })
+
+
+    input.addEventListener('change', (e) => {
+        files = input.files
+        dropArea.classList.add('active')
+        showFiles(files)
+        dropArea.classList.remove('active')
+
+    })
+
+    dropArea.addEventListener('dragover', (e) => {
+        e.preventDefault()
+        dropArea.classList.add('active')
+        dropArea.classList.remove('uploaded')
+        dragText.textContent = 'Suelta para subir la imagen'
+    })
+
+    dropArea.addEventListener('dragleave', (e) => {
+        e.preventDefault()
+        dropArea.classList.remove('active')
+        dropArea.classList.add('uploaded')
+        dragText.textContent = 'Arrastra y suelta la imagen'
+    })
+
+    dropArea.addEventListener('drop', (e) => {
+        e.preventDefault()
+        files = e.dataTransfer.files;
+        showFiles(files)
+        dropArea.classList.remove('active')
+
+        dragText.textContent = 'Arrastra y suelta la imagen'
+    })
+
+
+
+    document.addEventListener('dragover', (e) => {
+        e.preventDefault()
+        dropArea.classList.remove('uploaded')
+    })
+
+    document.addEventListener('dragleave', (e) => {
+        e.preventDefault()
+        dropArea.classList.remove('uploaded')
+    })
+
+    document.addEventListener('drop', (e) => {
+        e.preventDefault()
+        if (fileUrl) {
+            dropArea.classList.add('uploaded')
+        }
+
+
+    })
+
+
+
+    //funcion para validar la cantidad de archivos
+    function showFiles(files) {
+        if (files.length == 1) {
+            processFile(files[0])
+
+        } else {
+
+            fileUrl = undefined
+            dropArea.classList.remove('uploaded')
+            msgUpload.innerText = 'No es posible cargar más de una imagen'
+
+            setTimeout(() => {
+                msgUpload.innerText = ""
+            }, 3000);
+
+        }
+    }
+
+
+//funcion para procesar el archivo y validar su extension
+    function processFile(file) {
+        const docType = file.type; //tipo de archivo
+        const validExtensions = ['image/jpeg', 'image/png', 'image/jpg'] //extensiones validas
+
+        if (validExtensions.includes(docType)) {
+            //archivo valido
+            const fileReader = new FileReader();
+            const id = `file-${Math.random().toString(32).substring(7)}`
+
+            fileReader.addEventListener('load', e => {
+                fileUrl = fileReader.result //url de la imagen
+
+                img.innerHTML = '<h5 style="color: green;">Loading...</h5>'
+            })
+
+            fileReader.readAsDataURL(file)
+            uploadFile(file, id)
+
+        } else {
+            fileUrl = undefined
+            dropArea.classList.remove('uploaded')
+            msgUpload.innerText = 'Este tipo de archivo no es soportado asegurese que sea .png, .jpg o .jpeg'
+
+            setTimeout(() => {
+                msgUpload.innerText = ""
+            }, 3000);
+        }
+
+    }
+
+
+//funcion para subir el archivo
+    async function uploadFile(file, id) {
+        const formData = new FormData()
+
+        formData.append("file", file)
+
+        try {
+            const response = await fetch(`${window.location.origin}/upload` {
+                method: "POST",
+                body: formData
+            })
+
+            const responseText = await response.text();
+            console.log(responseText)
+
+            dropArea.classList.add('uploaded')
+            console.log(fileUrl)
+            img.innerHTML = `<img src="${fileUrl}" width="200px">`
+
+        } catch (error) {
+            fileUrl = undefined
+            dropArea.classList.remove('uploaded')
+            img.innerHTML = ''
+            msgUpload.innerText = 'No fue posible subir la imagen, intentelo nuevamente'
+
+            setTimeout(() => {
+                msgUpload.innerText = ""
+            }, 3000);
+        }
+    }
+
+</script>
+
+
+
+
+
+

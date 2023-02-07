@@ -8,6 +8,7 @@ usersValidator.validateSignUp = ()=>{
     return[
         body('nameSignUp', 'El nombre es requerido')
         .notEmpty(),
+        
         body('phoneSignUp', 'El telefono debe tener 5 caracteres y debe ser positivo')
         .isLength({min: 5})
         .isInt({min: 0})
@@ -17,8 +18,16 @@ usersValidator.validateSignUp = ()=>{
                 return Promise.reject('El telefono ya esta registrado')
             }
         }),
+
         body('nitSignUp', 'El nit debe tener 5 caracteres')
-        .isLength({min: 5}),
+        .isLength({min: 5})
+        .custom(async (value, {req}) => {
+            const user = await User.findOne({nit:req.body.nitSignUp})
+            if(user){
+                return Promise.reject('El nit ya esta registrado')
+            }
+        }),
+
         /* the email must be a valid email and not be registered in the database */
         body('emailSignUp', 'El email no es valido')
         .isEmail()
