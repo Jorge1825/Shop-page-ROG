@@ -6,9 +6,22 @@ const {validationResult} = require('express-validator');
 
 
 //renderizar el formulario de registro
-UsersCtrl.renderSignUpForm = (req, res) => {
+UsersCtrl.renderSignUpForm = async (req, res) => {
     res.locals.NavFooterActive = false
-    res.render('users/signup');
+    const users = await User.find().lean(); //lean() sirve para convertir el objeto en un json y poderlo manipular
+    
+    //convertir createdAt a una fecha legible y corta 
+    users.forEach(user => {
+        user.createdAt = user.createdAt.toLocaleDateString('es-ES', {year: 'numeric', month: 'long', day: 'numeric'});
+        user.estado = user.estado == 0 ? 'Activo' : 'Inactivo';
+    });
+    
+    
+
+    const countUsers = users.length;
+    
+    res.render('users/signup',{users, countUsers});
+
 }
 
 

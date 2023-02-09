@@ -1,13 +1,13 @@
-<div class="img-background-signup row bg-dark mx-0 my-0 min-vh-100 justify-content-center align-items-center">
-    <div class="col-11 userPanel z-2 bg-dark py-4 rounded-3">
-        <div class="row justify-content-center">
+<div class="img-background-signup row bg-dark m-0 p-0 min-vh-100 justify-content-center align-items-center">
+    <div class="col-10  userPanel z-2 py-4 rounded-3">
+        <div class="row justify-content-center m-0 p-0">
             <div class="col-12">
-                <h1 class="text-center text-light fs-1 fw-bold">USUARIOS DEL SISTEMA</h1>
+                <h1 class="text-center text-light fs-1 fw-bold mt-4">USUARIOS DEL SISTEMA</h1>
             </div>
 
             <div class="row mt-4">
 
-                <div class="col-2">
+                <div class="col-3 col-lg-2 justify-content-center d-flex">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-signup" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
@@ -105,6 +105,7 @@
                                                         <div class="col-12 col-sm-6">
                                                             <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
                                                                 <input onkeyup="comparePassword(this.value,this.id)"
+                                                                onblur="comparePassword(this.value,this.id)"
                                                                     type="password" name="password2SignUp"
                                                                     id="password2SignUp" class="form-control"
                                                                     placeholder="" oninvalid="return false" required>
@@ -156,16 +157,53 @@
                     </div>
 
                 </div>
-                <div class="col-6">
+                <div class="col-5 col-lg-8 ">
 
                 </div>
-                <div class="col-3 text-light fs-5">Stock: <span id="Stock">?</span></div>
+                <div class="col-4 col-lg-2 text-center p-0 text-light fs-5 pe-md-5">Usuarios: <span id="Stock">{{countUsers}}</span></div>
+                
 
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center my-5">
 
-                <div class="col-10">
+                <div class="col-11 px-3"  style="overflow-x: auto;">
+                    <table class="table table-dark table-striped-columns table-hover overflow-auto">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Nit</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Fecha de creacion</th>
+                                <th scope="col">Estado de la cuenta</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            {{#each users}}
+                            <tr>
+                                <td>{{nombre}}</td>
+                                <td>{{email}}</td>
+                                <td>{{nit_empleado}}</td>
+                                <td>{{telefono}}</td>
+                                <td>{{createdAt}}</td>
+                                <td>{{estado}}</td>
+                                <td>
+                                    <div class="row m-0 h-100">
+                                        <div class="col-12 justify-content-between d-flex">
+                                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditUser" onclick="editUser('{{_id}}')"><i class="fa-solid fa-pencil"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteUser('{{_id}}')"><i class="fa-solid fa-trash-can"></i></button>
+
+                                        </div>
+                                    </div>
+                                    
+                            </tr>
+                            {{/each}}
+
+
+                        </tbody>
 
 
                 </div>
@@ -214,7 +252,7 @@
     }
 
     .userPanel {
-
+        background-color: #1b1b1bc7;
         box-shadow: 0px 0px 10px rgb(253, 253, 253);
     }
 

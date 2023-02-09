@@ -381,6 +381,7 @@ function validateEmail(value,id){
     if(value == undefined || value == "" || regularEmail.test(value) == false){
         document.getElementById(`${id}Text`).classList.remove('d-none')
         problems.push('error')
+        return false
 
     }else{
         document.getElementById(`${id}Text`).classList.add('d-none')
@@ -408,14 +409,17 @@ function validateTel(value,id){
     if(value == undefined || value == "" || regularTel.test(value)){
         
         document.getElementById(`${id}Text`).classList.remove('d-none')
-        return problems.push('error')
+        problems.push('error')
+        return false
+        
     }else{
         document.getElementById(`${id}Text`).classList.add('d-none')
     }
     
     if(value<0){
         document.getElementById(`${id}`).value = ""
-        return problems.push('error')
+        problems.push('error')
+        return false
     }
 }
 
@@ -424,13 +428,15 @@ function validateNumber(value,id){
 
     if(value<0){
         document.getElementById(`${id}`).value = ""
-        return problems.push('error')
+        problems.push('error')
+        return false
     }
 
     if(value == undefined || value == "" || !/^[+]?\d+(\.\d+)?$/.test(value)){
         
         document.getElementById(`${id}Text`).classList.remove('d-none')
-        return problems.push('error')
+        problems.push('error')
+        return false
     }else{
         document.getElementById(`${id}Text`).classList.add('d-none')
     }
@@ -457,6 +463,7 @@ function validateInputsMoney(value,id,bool=true){
         document.getElementById(`${id}Text`).classList.remove('d-none')
         document.getElementById(`${id}`).value = ''
         problems.push('error')
+        return false
         
 
     }else{
@@ -491,6 +498,8 @@ function validatePasswordSignUp(value,id){
 
     if(value == undefined || value == "" || regularPass.test(value) == false){
         document.getElementById(`${id}Text`).classList.remove('d-none')
+        problems.push('error')
+        return false
     }else{
         document.getElementById(`${id}Text`).classList.add('d-none')
     }
@@ -508,6 +517,8 @@ function validatePasswordSignUp(value,id){
 function comparePassword(value,id){
     if(document.getElementById('passwordSignUp').value !== value){
         document.getElementById(`${id}Text`).classList.remove('d-none')
+        problems.push('error')
+        return false
     }else{
         document.getElementById(`${id}Text`).classList.add('d-none')
     }
