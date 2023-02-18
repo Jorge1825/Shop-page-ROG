@@ -1,12 +1,12 @@
 
     <div class="img-background-upload min-vh-100 row mx-0 my-0 py-3 justify-content-center align-items-center">
         <div class="col-12 px-0 col-lg-10 col-xl-11 col-sm-11 col-md-11 mx-auto">
-            <div class="card bg-dark">
-                    <div class="col-12 text-light fw-bold pt-3 text-center fs-3">
+            <div class="card bg-upload">
+                    <div class="col-12 text-light fw-bold pt-4 text-center fs-3">
                             REGISTRAR NUEVO EQUIPO
                     </div>
                 <div class="card-body mx-3 px-4 mx-sm-4 mx-md-5 ">
-                    <form action="/upload" method="POST" onsubmit="return submitSign('form-Upload')" id="form-Upload">
+                    <form action="/users/upload" method="POST" enctype="multipart/form-data" onsubmit="return submitSign('form-Upload')" id="form-Upload">
                     <div class="row">
                         <div class="col-12 text-danger my-3 fs-5">
                             Nota: donde se requiera más de un dato por favor separelos por comas
@@ -16,13 +16,13 @@
                 
                         <div class="row justify-content-start">
                             <div class="col-12">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Información basica</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="namePc" id="namePc" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Nombre</span>
                                     <p id="namePcText" class="d-none">Ingrese el nombre del equipo</p>
@@ -30,8 +30,8 @@
                                 </div>
                             </div>
     
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="marca" id="marca" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Marca</span>
                                     <p id="marcaText" class="d-none">Ingrese la marca del equipo</p>
@@ -39,8 +39,8 @@
                                 </div>
                             </div>
     
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="modelo" id="modelo" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Modelo</span>
                                     <p id="modeloText" class="d-none">Ingrese el modelo del equipo</p>
@@ -48,8 +48,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="system" id="system" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Sistema operativo</span>
                                     <p id="systemText" class="d-none">Ingrese el sistema operativo del equipo</p>
@@ -57,9 +57,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
+                            <div class="col-12 col-md-6 col-xl-4">
                             
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span>Unidad cd/dvd o integrada</span>
  
                                     <select class="form-select p-1 ps-2 bg-dark text-light" name="CD/DVD" id="CD/DVD">
@@ -70,8 +70,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="teclado" id="teclado" class="form-control" placeholder="" oninvalid="return false" required>
                                     <span>Caracteristicas del teclado</span>
                                     <p id="tecladoText" class="d-none">Ingrese al menos una caracteristica del teclado</p>
@@ -79,8 +79,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="peso" id="peso" class="inputNumberUpload form-control" placeholder="" oninvalid="return false" required>
                                     <span>Peso (kg)</span>
                                     <p id="pesoText" class="d-none">Ingrese el peso del equipo</p>
@@ -88,8 +88,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="color" id="color" class="form-control" placeholder="" oninvalid="return false" required>
                                     <span>Color o colores</span>
                                     <p id="colorText" class="d-none">Ingrese al menos un color</p>
@@ -97,8 +97,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="fuente" id="fuente" class="form-control" placeholder="" oninvalid="return false" required>
                                     <span>Fuentes de alimentacion</span>
                                     <p id="fuenteText" class="d-none">Ingrese al menos una fuente de alimentación</p>
@@ -107,17 +107,17 @@
                             </div>
 
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onfocus="validateInputsMoney(this.value,this.id,true)" onblur="validateInputsMoney(this.value,this.id,false)" type="number" name="precio" id="precio" class="inputNumberUpload form-control" placeholder="" oninvalid="return false" required>
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
+                                    <input onfocus="validateInputsMoney(this.value,this.id,true)" onblur="validateInputsMoney(this.value,this.id,false)" type="text" name="precio" id="precio" class="inputNumberUpload form-control" placeholder="" oninvalid="return false" required>
                                     <span>Precio</span>
                                     <p id="precioText" class="d-none">Ingrese el precio del equipo</p>
                                     <i></i>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="stock" id="stock" class="inputNumberUpload form-control" placeholder="" oninvalid="return false" required>
                                     <span>stock</span>
                                     <p id="stockText" class="d-none">Ingrese el stock del equipo</p>
@@ -125,8 +125,8 @@
                                 </div>
                             </div>
                             
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="bateria" id="bateria" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Duración de la bateria (horas)</span>
                                     <p id="bateriaText" class="d-none">Ingrese la duracion la bateria</p>
@@ -134,8 +134,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="Dimension" id="Dimension" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Dimensiones</span>
                                     <p id="DimensionText" class="d-none">Ingrese las dimensiones del equipo</p>
@@ -144,38 +144,38 @@
                             </div>
 
                             <div class="col-12 pt-5">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Procesador</span>
                                 </div>
                             </div>
                             
                             
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="procesador" id="procesador" class="form-control " placeholder="" required oninvalid="return false">
                                     <span>Nombre procesador</span>
                                     <p id="procesadorText" class="d-none">Ingrese el nombre del procesador</p>
                                     <i></i>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="velocidadProc" id="velocidadProc" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Velocidad en GHZ</span>
                                     <p id="velocidadProcText" class="d-none">Ingrese la velocidad del procesador</p>
                                     <i></i>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="nucleos" id="nucleos" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>nucleos</span>
                                     <p id="nucleosText" class="d-none">Ingrese los nucleos del procesador</p>
                                     <i></i>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="hilos" id="hilos" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>hilos</span>
                                     <p id="hilosText" class="d-none">Ingrese los hilos del procesador</p>
@@ -186,22 +186,22 @@
 
                             
                             <div class="col-12 pt-5">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Memoria ram</span>
                                 </div>
                             </div>
                             
                             
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="sizeRam" id="sizeRam" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Cantidad en GB</span>
                                     <p id="sizeRamText" class="d-none">Ingrese el tamaño de la ram</p>
                                     <i></i>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="velocidadRAM" id="velocidadRAM" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Velocidad en MHZ</span>
                                     <p id="velocidadRAMText" class="d-none">Ingrese la velocidad de la ram</p>
@@ -213,22 +213,22 @@
                             
                             
                             <div class="col-12 pt-5">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Almacenamiento</span>
                                 </div>
                             </div>
                             
                             
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="sizeDisk" id="sizeDisk" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Cantidad en GB</span>
                                     <p id="sizeDiskText" class="d-none">Ingrese la capacidad del disco o discos</p>
                                     <i></i>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span>Tipo</span>
  
                                     <select class="form-select p-1 ps-2 bg-dark text-light" style="font-size: 75%;" multiple size="2" name="tipeDisk" id="tipeDisk">
@@ -242,40 +242,40 @@
 
 
                             <div class="col-12 pt-5">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Targeta Grafica</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span>Tipo</span>
  
-                                    <select class="form-select p-1 ps-2 bg-dark text-light" name="tipeGra" id="tipeGra">
+                                    <select class="form-select p-1 ps-2 bg-dark text-light" onchange="validateGraphic(this.value)" name="tipeGra" id="tipeGra">
                                         <option value="0" selected>SIN TARGETA</option>
                                         <option value="1">INTEGRADA</option>
-                                        <option value="1">DEDICADA</option>
+                                        <option value="2">DEDICADA</option>
                                     </select>
                                 </div>
                             </div>
                             
                             
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
-                                    <input onblur="validateInputsEmpty(this.value,this.id)" type="text" name="nameGra" id="nameGra" class="form-control " placeholder="" required oninvalid="return false">
+                            <div class="col-12 col-md-6 col-xl-4 dataGraphic">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
+                                    <input onblur="validateInputsEmpty(this.value,this.id)" disabled type="text" name="nameGra" id="nameGra" class="form-control" placeholder="" required oninvalid="return false">
                                     <span>Nombre</span>
                                     <p id="nameGraText" class="d-none">Ingrese el nombre de la grafica</p>
                                     <i></i>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4 dataGraphic">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <div class="row">
-                                        <div class="col-9 ">
+                                        <div class="col-9">
                                             <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="sizeGra" id="sizeGra" class="inputNumberUpload form-control" placeholder="" required oninvalid="return false">
                                             <span>Capacidad de vram</span>
-                                            <p id="sizeGraText" class="d-none">Ingrese la capacidad de la vram</p>
+                                            <p id="sizeGraText" class="d-none m-0 p-0">Ingrese la capacidad de la vram</p>
                                             <i></i>
                                         </div>
                                         <div class="col-3 p-0 m-0 pe-3">
@@ -289,8 +289,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4 dataGraphic">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="velocidadGra" id="velocidadGra" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Velocidad</span>
                                     <p id="velocidadGraText" class="d-none">Ingrese la velocidad de la targeta</p>
@@ -300,14 +300,14 @@
 
                             
                             <div class="col-12 pt-5">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Pantalla</span>
                                 </div>
                             </div>
                             
                             
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="sizeDisplay" id="sizeDisplay" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Tamaño de la pantalla (pulgadas)</span>
                                     <p id="sizeDisplayText" class="d-none">Ingrese el tamaño de la pantalla</p>
@@ -315,12 +315,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <div class="row justify-content-start">
                                         <div class="col-5">
                                             <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="reso1" id="reso1" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
-                                            <span>Resolucion(fila)</span>
+                                            <span>Resolucion</span>
                                             <p id="reso1Text" class="d-none m-0 p-0">Dato faltante</p>
                                             <i></i>
                                         </div>
@@ -329,7 +329,7 @@
                                         </div>
                                         <div class="col-6">
                                             <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="reso2" id="reso2" class="inputNumberUpload form-control" placeholder="" required oninvalid="return false">
-                                            <span>Resolucion(columna)</span>
+                                            <span>Resolucion</span>
                                             <p id="reso2Text" class="d-none m-0 p-0">Dato faltante</p>
                                             <i></i>
                                         </div>
@@ -339,8 +339,8 @@
                             </div>
                             
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input onkeyup="validateNumber(this.value, this.id)" onblur="validateNumber(this.value, this.id)" type="number" name="refresh" id="refresh" class="inputNumberUpload form-control " placeholder="" required oninvalid="return false">
                                     <span>Tasa de refresco(HZ)</span>
                                     <p id="refreshText" class="d-none">Ingrese la tasa de refreco de la pantalla</p>
@@ -349,8 +349,8 @@
                             </div>
 
 
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span>Tipo</span>
 
                                     <select class="form-select p-1 ps-2 bg-dark text-light" style="font-size: 75%;" multiple size="2" name="tipeDisplay" id="tipeDisplay">
@@ -364,7 +364,7 @@
                             
                             
 <div class="col-12 pt-5">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <span class="fw-bolder span-upload">Información adicional</span>
                                 </div>
                             </div>
@@ -372,10 +372,10 @@
 
                             
 
-                            <div class="col-12 col-sm-6">
+                            <div class="col-12 col-md-6">
                                 <div class="row justify-content-center">
                                     <div class="col-12">
-                                        <div class="form-group  mt-2 boxInput boxInputSignUp pt-4">
+                                        <div class="form-group  mt-2 boxInput boxInputUpload pt-4">
                                     <input type="text" name="" id="foto" class="form-control" placeholder="" hidden oninvalid="return false" required>
                                     <span class="">Foto</span>
                                     <p id="input-fileText" class="d-none m-0 p-0">Cargue una foto</p>
@@ -394,7 +394,7 @@
                                         <div class="col-10 justify-content-center d-flex">
                                             <button class="d-flex fs-6 fw-semibold" type="button" id="btnUploadImg">Selecciona tu imagen</button>
                                         </div>
-                                        <input onchange="validateInputsEmpty(this.value,this.id)" onblur="validateInputsEmpty(this.value,this.id)" type="file" name="foto" id="input-file" accept=".png,.jpg,.jpeg" oninvalid="return false" hidden multiple />
+                                        <input onchange="validateInputsEmpty(this.value,this.id)" onblur="validateInputsEmpty(this.value,this.id)" type="file" name="image" id="input-file" accept=".png,.jpg,.jpeg" oninvalid="return false" hidden multiple />
                                         <div id="msgUpload" class="failure"></div>
                                 
                                     </div>
@@ -412,8 +412,8 @@
                             
 
 
-                            <div class="col-12 col-sm-6 mt-2">
-                                <div class="form-group mt-2 boxInput boxInputSignUp pt-4">
+                            <div class="col-12 col-md-6 col-m mt-2">
+                                <div class="form-group mt-2 boxInput boxInputUpload pt-4">
                                     <input type="text" name="" id="" hidden class="form-control " placeholder="" required oninvalid="return false">
                                     <span class="">Accesorios</span>
                                     <textarea class="rounded-2 w-100 p-2 mt-2" id="Accesorios"></textarea>
@@ -425,7 +425,7 @@
                         </div>
                         
                         <div class="form-group mt-3 pt-4 justify-content-center d-flex">
-                            <button type="submit" onclick="document.getElementById('form-Upload').onsubmit()" class="btn btn-signin w-50">Guardar</button>
+                            <button type="submit" onclick="document.getElementById('form-Upload').onsubmit()" class="btn btn-upload w-50 my-4">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -443,8 +443,42 @@
     background-size: auto;
     height: 100%;
 }
+.bg-upload{
+    background-color: rgba(0, 0, 0, 0.795);
+}
 .span-upload{
     text-shadow: 0.3px 0.5px  rgb(238, 238, 238);
+}
+.btn-upload {
+        background-color: var(--redColor);
+        color: white;
+
+}
+.boxInputUpload i::before {
+        animation: none;
+    }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+} 
+
+.btn-upload:hover {
+        background-color: var(--redColor);
+        color: rgb(221, 221, 221);
+        box-shadow: inset 0px 0px 5px rgb(248, 248, 248)
+}
+
+.btn-upload:focus {
+        background-color: rgb(8, 8, 8);
+        color: rgb(221, 221, 221);
+        box-shadow: inset 0px 0px 5px rgb(248, 248, 248)
+}
+
+/* Cambiar el color de fondo de un input que este deshabilitado */
+input:disabled {
+    background-color: #ffffff00 !important;
 }
 
 
@@ -546,10 +580,11 @@
 
 {{!-- Codigo js --}}
 
-<script type="text/javascript">
+<script>
+
+
 
     /* drag and drop */
-
 
     const dropArea = document.getElementById("drop-area")
     const dragText = document.getElementById('dragText')
@@ -681,7 +716,7 @@
         formData.append("file", file)
 
         try {
-            const response = await fetch(`${window.location.origin}/upload` {
+            const response = await fetch(`${window.location.origin}/users/upload`,{
                 method: "POST",
                 body: formData
             })

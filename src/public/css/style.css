@@ -95,7 +95,7 @@
     color: rgba(255,255,255,0.5);
     text-transform: uppercase;
     pointer-events: none;
-    font-size: 0.8em;
+    font-size: 0.9em;
     transition: 0.5S;
     -webkit-transition: 0.5S;
     -moz-transition: 0.5S;
@@ -107,7 +107,8 @@
 
 .boxInput p{
     color:var(--redColor);
-    font-size: 70%;
+    font-size: 88%;
+    text-shadow: 0 0 1px rgb(0, 0, 0);
 }
 
 .boxInput input:focus ~ span,

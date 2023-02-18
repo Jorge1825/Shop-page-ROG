@@ -113,7 +113,10 @@ UsersCtrl.renderUpload=(req, res)=>{
 }
 
 UsersCtrl.sendUpload=async (req, res)=>{
-    
+
+    console.log(req.file)
+
+
 
     try{
     const product = new Product({
@@ -133,9 +136,10 @@ UsersCtrl.sendUpload=async (req, res)=>{
 
     
     await product.save()
-    res.redirect('/upload')
+    res.redirect('/users/upload')
 
     }catch(err){
+        console.log(err)
         req.flash('error_msg','Ha ocurrido un error al registrar el producto');
         res.redirect('/upload');
     }

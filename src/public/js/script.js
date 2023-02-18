@@ -345,12 +345,17 @@ window.onload = function() {
     
     //execute the function for change the background of the banner 
     
-
+/* 
     //paint the targets of computers 
     paintCardPc();
     
     //paint the options of the list search
     paintSearchList();
+ */
+
+
+
+    validateGraphic(document.getElementById("tipeGra").value)
 
     
 
@@ -451,10 +456,12 @@ function validateInputsMoney(value,id,bool=true){
     //eliminar los puntos y comas de value
 
     let newNumber = parseFloat(value.replace(/[^0-9.]+/g,""))
+  
 
     if(bool){
 
-        isNaN(newNumber) ? document.getElementById(`${id}`).value = '' : document.getElementById(`${id}`).value = newNumber;
+        isNaN(newNumber) ? document.getElementById(`${id}`).value = '' 
+        : document.getElementById(`${id}`).value = newNumber;
 
         
     }else{
@@ -527,6 +534,33 @@ function comparePassword(value,id){
 
 
 
+//function for validate if active the options adicional for the graphics
+function validateGraphic(value){
+    if (value === "0") {
+        let elements = document.getElementsByClassName("dataGraphic");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].classList.add("d-none");
+        }
+        document.getElementById("nameGra").removeAttribute("onblur");
+        document.getElementById("sizeGra").removeAttribute("onblur");
+        document.getElementById("velocidadGra").removeAttribute("onblur");
+      } else {
+        let elements = document.getElementsByClassName("dataGraphic");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("d-none");
+        }
+        document.getElementById("nameGra").setAttribute("onblur", "validateInputsEmpty(this.value,this.id)");
+        document.getElementById("sizeGra").setAttribute("onblur", "validateNumber(this.value, this.id)");
+        document.getElementById("velocidadGra").setAttribute("onblur", "validateNumber(this.value, this.id)");
+      }
+}
+
+
+
+
+
+
+
 //funcion para validar formulrios y enviarlos en caso de que los campos cumplan con las condiciones esperadas
 function submitSign(form="none"){
     let formulario = document.getElementById(form)
@@ -583,6 +617,14 @@ function msgFlash() {
   }
 
 
-function test(){
-    console.log("test")
-}
+
+
+
+
+
+
+
+
+
+
+
